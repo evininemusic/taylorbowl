@@ -165,7 +165,10 @@ class="contents-list">
         3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Yahtzee#Invocations_&_Evocations"> Invocations & Evocations <br> </a>
     </div>
     <div>
-        &emsp; &ensp; 4.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Yahtzee#Invocations_&_Evocations#Discount"> List of Commands <br> </a>
+        &emsp; &ensp; 3.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Yahtzee#Invocations_&_Evocations#Discount"> Discount <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 3.2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Yahtzee#Invocations_&_Evocations#Augment"> Augment <br> </a>
     </div>
     <div>
         4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Yahtzee#Glossary"> Glossary <br> </a>
@@ -227,14 +230,14 @@ id="js-toggle-content-1">
 class="content">
 Users may use the command <span class="command-text">!yahtzee number</span> to play Yahtzee, or the command <span class="command-text">!yahtzee all</span> to use as many rolls as possible within Discord's character limitation. <b>Note that this will also use a user's paid rolls, and can reduce their credits to negative.</b> Users have some free rolls each <a class="text-actionable-link" href="https://taylorbowl.wiki/Bot_Cycle" data-tippy-content="A Bot Cycle is a period between two Bot Restarts.">Bot Cycle</a>. Every Server Booster grants 1.5 free rolls, rounded up. After all free rolls have been used, each subsequent paid roll costs 10 credits. Each player has a limited number of paid rolls per Bot Cycle. This number starts at 150 and is increased by 150 for every <a class="text-actionable-link" href="https://taylorbowl.wiki/Ephemera#Ephemera_Level" data-tippy-content="Ephemera Level is a user statistic that allows users to hold Ephemera or play more of certain minigames.">Ephemera Level</a>.
 <br> <br>
-There are four types of combinations that will award credits.
+There are four types of combinations that will award credits. The number in bold is known as the multiplier.
 <ol>
-    <li>1-Roll Yahtzee: All five numbers are the same. This awards 1989x the number shown on all dice.</li>
-    <li>4-of-a-Kind: Four of five numbers are the same. This awards 89x the number shown on the four dice.</li>
-    <li>Large Straight: The dice show a consecutive sequence of numbers when rearranged. This awards 4x of the sum of all numbers shown.</li>
-    <li>Full House: Three dice share one number, and the other two dice share another number. This awards 3x the sum of all numbers shown.</li>
-    <li>3-of-a-Kind: Three of five numbers are the same. This awards 1x the number shown on the 3 dice.</li>
-    <li>Small Straight: Four of the five dice show a consecutive sequence when rearranged. This awards 1x the sum of the numbers in the sequence.</li>
+    <li>1-Roll Yahtzee: All five numbers are the same. This awards <b>1989</b>x the number shown on all dice.</li>
+    <li>4-of-a-Kind: Four of five numbers are the same. This awards <b>89</b>x the number shown on the four dice.</li>
+    <li>Large Straight: The dice show a consecutive sequence of numbers when rearranged. This awards <b>4</b>x of the sum of all numbers shown.</li>
+    <li>Full House: Three dice share one number, and the other two dice share another number. This awards <b>3</b>x the sum of all numbers shown.</li>
+    <li>3-of-a-Kind: Three of five numbers are the same. This awards <b>1</b>x the number shown on the 3 dice.</li>
+    <li>Small Straight: Four of the five dice show a consecutive sequence when rearranged. This awards <b>1</b>x the sum of the numbers in the sequence.</li>
 </ol>
 </div>
 
@@ -263,15 +266,15 @@ id="js-toggle-content-2">
 
 <div
 class="content">
-The expected value of a free Yahtzee is around 17.8349 credits. The following calculations and explanations show the expected value of all the ways to get returns. The notation \(^{n}\text{C}_{r}\) is the binomial coefficient, or the number of combinations that can be formed by drawing \(r\) elements from a set with \(n\) elements.
+The expected value of a free Yahtzee is around 17.8349 credits. The following calculations and explanations show the expected value of all the ways to get returns. The notation \(^{n}\text{C}_{r}\) is the binomial coefficient, or the number of combinations that can be formed by drawing \(r\) elements from a set with \(n\) elements. The first number on the right hand side of every calculation is the multiplier for that Yahtzee return. Those with default multipliers of 1 are still included for clarity as these calculations can be modified. See <a class="text-actionable-link" href="https://taylorbowl.wiki/Yahtzee#Invocations_&_Evocations#Augment">Invocations & Evocations/Augment</a> for more details.
 <br> <br>
 1-Roll Yahtzees can occur for any of the six numbers. There is 1 way to arrange 5 identical numbers.
 <div class="formula">
-<p><span>$$E(\text{1-Roll Yahtzee})=\sum_{i=1}^{6}1989i\cdot\left(\cfrac{1}{6}\right)^{5}\approx5.3715$$</span></p>
+<p><span>$$E(\text{1-Roll Yahtzee})=1989\cdot\sum_{i=1}^{6}i\cdot\left(\cfrac{1}{6}\right)^{5}\approx5.3715$$</span></p>
 </div>
 Four-of-a-Kinds can occur for any of the six numbers. There are 5 options for the last die as it cannot be a repeated number. There are 5 ways to position the non-repeated number among the five dice.
 <div class="formula">
-<p><span>$$E(\text{4-of-a-Kind})=\sum_{i=1}^{6}89i\cdot5\cdot5\cdot\left(\cfrac{1}{6}\right)^{5}\approx6.0089$$</span></p>
+<p><span>$$E(\text{4-of-a-Kind})=89\cdot\sum_{i=1}^{6}i\cdot5\cdot5\cdot\left(\cfrac{1}{6}\right)^{5}\approx6.0089$$</span></p>
 </div>
 Large Straights have only two possible options, namely 12345 and 23456. There are \(5!\) ways to arrange the five distinct numbers.
 <div class="formula">
@@ -279,15 +282,15 @@ Large Straights have only two possible options, namely 12345 and 23456. There ar
 </div>
 Full Houses have 30 possible options as there are \(6^2\) pairs of numbers that can be made from the 6 numbers and 6 of those pairs have a repeated number. There are \(^{5}\text{C}_{2}\) ways to position the two numbers among the five dice.
 <div class="formula">
-<p><span>$$E(\text{Full House})=3\left(\sum_{i=1}^{6}\sum_{j=1}^{6}\left(3i+2j\right)-5\sum_{k=1}^{6}k\right)\cdot^{5}\text{C}_{2}\cdot\left(\cfrac{1}{6}\right)^{5}\approx2.0255$$</span></p>
+<p><span>$$E(\text{Full House})=3\cdot\left(\sum_{i=1}^{6}\sum_{j=1}^{6}\left(3i+2j\right)-5\sum_{k=1}^{6}k\right)\cdot^{5}\text{C}_{2}\cdot\left(\cfrac{1}{6}\right)^{5}\approx2.0255$$</span></p>
 </div>
 3-of-a-Kinds can occur for any of the six numbers. There are 5 and 4 options for the fourth and fifth dice as neither can be a repeated number. There are \(^{5}\text{C}_{2}\) ways to position the two non-repeated numbers among the five dice.
 <div class="formula">
-<p><span>$$E(\text{3-of-a-Kind})=\sum_{i=1}^{6}i\cdot5\cdot4\cdot^{5}\text{C}_{2}\cdot\left(\cfrac{1}{6}\right)^{5}\approx0.5401$$</span></p>
+<p><span>$$E(\text{3-of-a-Kind})=1\cdot\sum_{i=1}^{6}i\cdot5\cdot4\cdot^{5}\text{C}_{2}\cdot\left(\cfrac{1}{6}\right)^{5}\approx0.5401$$</span></p>
 </div>
 Small Straights have only three possible options, namely 1234, 2345, and 3456. For 1234 and 3456, the last number has 5 options, four of which are duplicates of numbers in the sequence. There are \(^{5}\text{C}_{2}\) ways to position the two repeated numbers among the five dice and \(3!\) ways to arrange the three distinct numbers. The last option that is not a duplicate has \(5!\) ways to arrange the five distinct numbers. For 2345, the last number has 4 options, all of which are duplicates. Again, there are \(^{5}\text{C}_{2}\) ways to position the two repeated numbers among the five dice and \(3!\) ways to arrange the three distinct numbers.
 <div class="formula">
-<p><span>$$E(\text{Small Straight})=\left(\left(\sum_{i=1}^{4}i+\sum_{j=3}^{6}j\right)\left(4\cdot^{5}\text{C}_{2}\cdot3!+5!\right)+\sum_{k=2}^{5}k\cdot\left(4\cdot^{5}\text{C}_{2}\cdot3!\right)\right)\cdot\left(\cfrac{1}{6}\right)^{5}\approx1.7284$$</span></p>
+<p><span>$$E(\text{Small Straight})=1\cdot\left(\left(\sum_{i=1}^{4}i+\sum_{j=3}^{6}j\right)\left(4\cdot^{5}\text{C}_{2}\cdot3!+5!\right)+\sum_{k=2}^{5}k\cdot\left(4\cdot^{5}\text{C}_{2}\cdot3!\right)\right)\cdot\left(\cfrac{1}{6}\right)^{5}\approx1.7284$$</span></p>
 </div>
 Thus, the expected value of a free Yahtzee is given by the sum of these expected values, and the expected value of a paid Yahtzee is 22 less than that:
 <div class="formula">
@@ -323,7 +326,7 @@ id="js-toggle-content-3">
 
 <div
 class="content">
-There is 1 <a class="text-actionable-link" href="https://taylorbowl.wiki/Invocation" data-tippy-content="Invocations are powerful commands only performable by using Ephemera.">Invocation</a> that affects Yahtzees.
+There are 2 <a class="text-actionable-link" href="https://taylorbowl.wiki/Invocation" data-tippy-content="Invocations are powerful commands only performable by using Ephemera.">Invocations</a> that affects Yahtzee.
 </div>
 
 <div
@@ -343,6 +346,39 @@ Since the expected value of a free Yahtzee is 17.8349, Discounting using 5 Ephem
 <p><span>$$\text{returns}=n(17.8349-c)=n(d-4.1649)$$</span></p>
 </div>    
 where \(n\) is the number of rolls, \(c\) is the cost per roll, and \(d\) is the number of Discounts used.
+</div>
+
+<div
+class="subsection-title"
+id="Invocations_&_Evocations#Augment">
+    Augment
+</div>
+
+<div
+class="content">
+Augment is used to randomly modify <a class="text-actionable-link" href="https://taylorbowl.wiki/Yahtzee" data-tippy-content="Yahtzee is a dice-based minigame that uses credits.">Yahtzee</a> multipliers. The command <span class="command-text">!trick</span> consumes 10 Ephemera to cause increase one Yahztee multiplier by 1 and decrease another by 1. Augment cannot decrease a multiplier below 0, and if one is selected, no multiplier decreases for that use of Augment. The effect of Augment is removed by <a class="text-actionable-link" href="https://taylorbowl.wiki/Bot_Cycle" data-tippy-content="A Bot Restart resets certain actions, or fixes BowlBot when broken.">Bot Restarts</a>.
+<br> <br>
+To see the effect of Augment on Yahtzee returns, we can look at Yahtzee returns with multiplier excluded, represented by \(E_{0}(X)\), where \(X\) is a given Yahtzee return. This is the change in the average credits from each Yahtzee return when its respective multiplier is increased by 1.
+<div class="formula"><p><span>
+$$E_{0}(\text{1-Roll Yahtzee})=\sum_{i=1}^{6}i\cdot\left(\cfrac{1}{6}\right)^{5}\approx0.0027006
+\\
+E_{0}(\text{4-of-a-Kind})=\sum_{i=1}^{6}i\cdot5\cdot5\cdot\left(\cfrac{1}{6}\right)^{5}\approx0.067515
+\\
+E_{0}(\text{Large Straight})=\left(\sum_{i=1}^{5}i+\sum_{j=2}^{6}j\right)\cdot5!\cdot\left(\cfrac{1}{6}\right)^{5}\approx0.54012
+\\
+E_{0}(\text{Full House})=\left(\sum_{i=1}^{6}\sum_{j=1}^{6}\left(3i+2j\right)-5\sum_{k=1}^{6}k\right)\cdot^{5}\text{C}_{2}\cdot\left(\cfrac{1}{6}\right)^{5}\approx0.67515
+\\
+E_{0}(\text{3-of-a-Kind})=\sum_{i=1}^{6}i\cdot5\cdot4\cdot^{5}\text{C}_{2}\cdot\left(\cfrac{1}{6}\right)^{5}\approx0.54012
+\\
+E_{0}(\text{Small Straight})=\left(\left(\sum_{i=1}^{4}i+\sum_{j=3}^{6}j\right)\left(4\cdot^{5}\text{C}_{2}\cdot3!+5!\right)+\sum_{k=2}^{5}k\cdot\left(4\cdot^{5}\text{C}_{2}\cdot3!\right)\right)\cdot\left(\cfrac{1}{6}\right)^{5}\approx1.7284$$
+</span></p></div>
+Arranging from greatest to smallest, we get a list of best to worst multipliers to be increased by Augment, or conversely a list of worst to best multipliers to be decreased by Augment:
+<div class="formula">
+<p><span>$$\text{Small Straight} > \text{Full House} > \text{Large Straight} > \text{3-of-a-Kind} > \text{4-of-a-Kind} > \text{1-Roll Yahtzee}$$</span></p>
+</div>
+The average change in returns from using Augment once is 0, as every possible pair of Yahtzee returns has a negative and positive result that add up to 0 or is 0 in the first place. Similarly, because positive and negative results come in pairs, there is a 50% chance to get higher returns and a 50% chance to get lower returns. 
+<br> <br>
+With multiple uses of Augment, the chance that the change in returns is positive is slightly higher than 50%. This is because some uses of Augment may happen on Yahtzee returns that already have a multiplier of 0. However, this can only happen with 4-of-a-Kind, Large Straight, Full House, and 3-of-a-Kind, which are the Yahtzee returns with the highest non-multiplier value, which means the average would have likely dropped before this. Combined with a relatively high Invocation cost and its effect being reset by Bot Restarts, the impact of this is likely negligible.
 </div>
 
 </div>
@@ -436,7 +472,7 @@ class="content">
 
 <div
 class="version-text">
-Updated for BowlBot Version 17.2.5
+Updated for BowlBot Version 17.2.6
 </div>
 
 </body>
@@ -447,5 +483,3 @@ Updated for BowlBot Version 17.2.5
 <script src="Code.js"></script>
 
 </html>
-
-
