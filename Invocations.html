@@ -220,10 +220,13 @@ class="contents-list">
         &emsp; &ensp; 3.9 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Invocations#Medium_Cost#Attune"> Attune <br> </a>
     </div>
     <div>
-        &emsp; &ensp; 3.10 &ensp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Invocations#Medium_Cost#Flourish"> Flourish <br> </a>
+        &emsp; &ensp; 3.10 &ensp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Invocations#Medium_Cost#Trick"> Trick <br> </a>
     </div>
     <div>
-        &emsp; &ensp; 3.11 &ensp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Invocations#Medium_Cost#Trick"> Trick <br> </a>
+        &emsp; &ensp; 3.11 &ensp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Invocations#Medium_Cost#Flourish"> Flourish <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 3.12 &ensp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Invocations#Medium_Cost#Augment"> Augment <br> </a>
     </div>
     <div>
         4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Invocations#High_Cost"> High Cost (12 to 32 Ephemera) <br> </a>
@@ -614,6 +617,17 @@ Attune will not take effect if there is no <a class="text-actionable-link" href=
 
 <div
 class="subsection-title"
+id="Medium_Cost#Trick">
+    Trick
+</div>
+
+<div
+class="content">
+Trick is used to force a fake Warning Bloom. The command <span class="command-text">!trick</span> consumes 8 Ephemera to cause BowlBot to send a message identical to the Warning Bloom in all Farm channels. However, the Blight will not occur because of Trick, nor will credits grow. It is a purely visual effect, known internally as "ev's idea".
+</div>
+
+<div
+class="subsection-title"
 id="Medium_Cost#Flourish">
     Flourish
 </div>
@@ -629,13 +643,15 @@ You may use the EsteBot command <span class="command-text">/flourish</span> to d
 
 <div
 class="subsection-title"
-id="Medium_Cost#Trick">
-    Trick
+id="Medium_Cost#Augment">
+    Augment
 </div>
 
 <div
 class="content">
-Trick is used to force a fake Warning Bloom. The command <span class="command-text">!trick</span> consumes 10 Ephemera to cause BowlBot to send a message identical to the Warning Bloom in all Farm channels. However, the Blight will not occur because of Trick, nor will credits grow. It is a purely visual effect, known internally as "ev's idea".
+Augment is used to randomly modify <a class="text-actionable-link" href="https://taylorbowl.wiki/Yahtzee" data-tippy-content="Yahtzee is a dice-based minigame that uses credits.">Yahtzee</a> multipliers. The command <span class="command-text">!trick</span> consumes 10 Ephemera to cause increase one Yahztee multiplier by 1 and decrease another by 1. Augment cannot decrease a multiplier below 0, and if one is selected, no multiplier decreases for that use of Augment. The effect of Augment is removed by <a class="text-actionable-link" href="https://taylorbowl.wiki/Bot_Cycle" data-tippy-content="A Bot Restart resets certain actions, or fixes BowlBot when broken.">Bot Restarts</a>.
+</div>
+
 </div>
 
 </div>
@@ -1010,7 +1026,7 @@ List of Terms
 
 <div
 class="version-text">
-Updated for BowlBot Version 17.2.5
+Updated for BowlBot Version 17.2.6
 </div>
 
 </body>
