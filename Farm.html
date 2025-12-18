@@ -90,15 +90,15 @@ class="page-header">
 </div>
 
 <div 
-class="page-cover-kofi" 
-id="js-page-cover-kofi"
-onclick="closeKofi()"></div>
+class="page-cover-advertisement" 
+id="js-page-cover-advertisement"
+onclick="closeAdvertisement()"></div>
 
 <div
-class="kofi"
-id="js-kofi">
+class="advertisement"
+id="js-advertisement">
 <div
-class="kofi-text">
+class="advertisement-text">
 Enjoying the Wiki? This Wiki is created and funded solely by one person. If you find it helpful, feel free to support me via my <a class="text-actionable-link" href="https://ko-fi.com/evinine">Kofi</a>!
 </div>
 <div
@@ -210,10 +210,10 @@ class="contents-list">
         &emsp; &ensp; 4.4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Farm#Invocations_&_Evocations#Attune"> Attune <br> </a>
     </div>
     <div>
-        &emsp; &ensp; 4.5 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Farm#Invocations_&_Evocations#Flourish"> Flourish <br> </a>
+        &emsp; &ensp; 4.5 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Farm#Invocations_&_Evocations#Trick"> Trick <br> </a>
     </div>
     <div>
-        &emsp; &ensp; 4.6 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Farm#Invocations_&_Evocations#Trick"> Trick <br> </a>
+        &emsp; &ensp; 4.6 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Farm#Invocations_&_Evocations#Flourish"> Flourish <br> </a>
     </div>
     <div>
         &emsp; &ensp; 4.7 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Farm#Invocations_&_Evocations#Delay"> Delay <br> </a>
@@ -517,7 +517,7 @@ id="js-toggle-content-4">
 
     <div
     class="content">
-        There are <a class="text-actionable-link" href="https://taylorbowl.wiki/Invocations" data-tippy-content="Invocations are powerful commands only performable by using Ephemera.">Invocations</a> and <a class="text-actionable-link" href="https://taylorbowl.wiki/Evocations" data-tippy-content="Evocations are extremely powerful commands only performable by using Perpetua.">Evocations</a> that affect the Farm. While there are other Evocations that affect the Farm, they will only be added once used successfully.
+        There are <a class="text-actionable-link" href="https://taylorbowl.wiki/Invocations" data-tippy-content="Invocations are powerful commands only performable by using Ephemera.">Invocations</a> and <a class="text-actionable-link" href="https://taylorbowl.wiki/Evocations" data-tippy-content="Evocations are extremely powerful commands only performable by using Perpetua.">Evocations</a> that affect the Farm.
     </div>
 
     <div
@@ -572,6 +572,17 @@ id="js-toggle-content-4">
 
     <div
     class="subsection-title"
+    id="Invocations_&_Evocations#Trick">
+        Trick
+    </div>
+
+    <div
+    class="content">
+    Trick is used to force a fake Warning Bloom. The command <span class="command-text">!trick</span> consumes 8 Ephemera to cause BowlBot to send a message identical to the Warning Bloom in all Farm channels. However, the Blight will not occur because of Trick, nor will credits grow. It is a purely visual effect, known internally as "ev's idea".
+    </div>
+
+    <div
+    class="subsection-title"
     id="Invocations_&_Evocations#Flourish">
         Flourish
     </div>
@@ -587,24 +598,13 @@ id="js-toggle-content-4">
 
     <div
     class="subsection-title"
-    id="Invocations_&_Evocations#Trick">
-        Trick
-    </div>
-
-    <div
-    class="content">
-    Trick is used to force a fake Warning Bloom. The command <span class="command-text">!trick</span> consumes 10 Ephemera to cause BowlBot to send a message identical to the Warning Bloom in all Farm channels. However, the Blight will not occur because of Trick, nor will credits grow. It is a purely visual effect, known internally as "ev's idea".
-    </div>
-
-    <div
-    class="subsection-title"
     id="Invocations_&_Evocations#Delay">
         Delay
     </div>
 
     <div
     class="content">
-    Trick is used to force all Farmers to weed. The command <span class="command-text">!delay</span> consumes 16 Ephemera to cause all Farmers to use the command <span class="command-text">!weed</span> (without them actually sending a message) if they have not done so this Blight Cycle.
+    Delay is used to force all Farmers to weed. The command <span class="command-text">!delay</span> consumes 16 Ephemera to cause all Farmers to use the command <span class="command-text">!weed</span> (without them actually sending a message) if they have not done so this Blight Cycle.
     </div>
 
     <div
@@ -894,7 +894,7 @@ where \(D\) is the Growth Denominator, \(M\) is the Maximum Strength, \(S\) is t
 <b>6.2</b> &ensp; Condition for safety:
 <div
 class="formula">
-    <p><span>$$\mathrm{Threshold\,percentage}<100\%$$</span></p>
+    <p><span>$$\mathrm{Threshold\,percentage} < 100\%$$</span></p>
 </div>
 <b>7</b> &ensp; Number of new Active Farmers before the Current Strength exceeds the Threshold, \(\Delta n\):
 <div class="formula">
@@ -983,7 +983,7 @@ List of Terms
 
 <div
 class="version-text">
-Updated for BowlBot Version 17.2.0
+Updated for BowlBot Version 17.2.6
 </div>
 
 </body>
@@ -994,5 +994,3 @@ Updated for BowlBot Version 17.2.0
 <script src="Code.js"></script>
 
 </html>
-
-
