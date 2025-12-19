@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <title>
+        User Score
+    </title>
+
+    <link 
+    rel="icon" 
+    href="Logos/TaylorBowl Logo.svg" 
+    type="image/icon type">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Styles.css">
+
+</head>
+
+<body>
+
+<div
+class="page-header">
+
+    <a
+    class="taylorbowl-logo"
+    id="js-taylorbowl-logo"
+    href="https://taylorbowl.wiki/">
+    <img
+    src="Logos/TaylorBowl Logo.svg"
+    class="taylorbowl-logo-image">
+    <span
+    class="taylorbowl-logo-text">
+        TAYLORBOWL WIKI
+    </span>
+    </a>
+
+    <button
+    class="lg-theme-button"
+    id="js-lg-theme-button"
+    onclick="toggleTheme()">
+    <img
+    class="theme-logo"
+    id="js-theme-logo"
+    src="Logos/Theme Logo Dark.svg">
+    </button>
+
+    <button
+    class="lg-open-search-button"
+    id="js-lg-open-search-button"
+    onclick="openSearch()">
+    <img 
+    class="search-logo" 
+    id="js-search-logo"
+    src="Logos/Search Logo Dark.svg">
+    </button>
+
+    <input 
+    class="lg-search-input"
+    id="js-lg-search-input"
+    type="search"
+    placeholder="Search pages..."
+    onkeydown="processQuery()"
+    onfocusout="closeSearch()">
+
+    <button
+    class="lg-enter-search-button"
+    id="js-lg-enter-search-button"
+    onmousedown="redirect()">
+    <img 
+    class="search-logo" 
+    id="js-new-search-logo"
+    src="Logos/Search Logo Dark.svg">
+    </button>
+
+    <button
+    class="open-menu-button"
+    id="js-open-menu-button"
+    onclick="openMenu()">
+    <img
+    class="menu-logo"
+    id="js-menu-logo"
+    src="Logos/Menu Logo Dark.svg">
+    </button>
+
+</div>
+
+<div 
+class="page-cover-advertisement" 
+id="js-page-cover-advertisement"
+onclick="closeAdvertisement()"></div>
+
+<div
+class="advertisement"
+id="js-advertisement">
+<div
+class="advertisement-text">
+Enjoying the Wiki? This Wiki is created and funded solely by one person. If you find it helpful, feel free to support me via my <a class="text-actionable-link" href="https://ko-fi.com/evinine">Kofi</a>!
+</div>
+<div
+class="escape-text">
+Click anywhere or press Escape to close.
+</div>
+</div>
+
+<div 
+class="page-cover" 
+id="js-page-cover"
+onclick="closeMenu()"></div>
+<div
+class="menu"
+id="js-menu">
+
+<button
+class="menu-button"
+id="js-close-menu-button"
+onclick="closeMenu()">
+<img
+class="close-menu-logo"
+id="js-close-menu-logo"
+src="Logos/Close Menu Logo Dark.svg">
+Close Menu
+</button>
+
+<button
+class="menu-button"
+onclick="toggleTheme()">
+<img
+class="menu-theme-logo"
+id="js-menu-theme-logo"
+src="Logos/Theme Logo Dark.svg">
+<span id="js-mode-text">Light Mode</span>
+</button>
+
+<button
+class="menu-button"
+onclick="window.location.href = `https://taylorbowl.wiki/search`">
+<img
+class="menu-search-logo"
+id="js-menu-search-logo"
+src="Logos/Search Logo Dark.svg">
+Search Pages
+</button>
+
+<hr
+class="menu-line">
+
+<div
+class="contents-list">
+    <div
+    class="contents-list-title">
+        Table of Contents
+    </div>
+    <div>
+        1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Components"> Components <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 1.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Components#Base_Score"> Base Score <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 1.2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Components#Additional_Score"> Additional Score <br> </a>
+    </div>
+    <div>
+        2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Accolades"> Accolades <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 2.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Accolades#User_Tiers"> User Tiers <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 2.2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Accolades#The_Council"> The Council <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 2.3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Accolades#The_Pantheon"> The Pantheon <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 2.4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Accolades#Symbols"> Symbols <br> </a>
+    </div>
+    <div>
+        3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Calculations#Accolades"> Calculations <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 3.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Calculations#User_Score"> User Score <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 3.2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Calculations#User_Tiers"> User Tiers <br> </a>
+    </div>
+    <div>
+        4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Glossary"> Glossary <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 4.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Glossary#List_of_Commands"> List of Commands <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 4.2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Glossary#List_of_Formulae"> List of Formulae <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 4.3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score#Glossary#List_of_Terms"> List of Terms <br> </a>
+    </div>
+</div>
+
+</div>
+
+<div
+class="page-title">
+User Score
+</div>
+<hr
+class="page-title-line">
+
+<div
+class="content"
+id="js-page-summary">
+User Score is a value assigned to each user that measures their overall activity in TaylorBowl. It is similar to Elo for tracks, but measures activity instead of popularity. Like Elo, users are divided into User Tiers based on their User Score. Certain users are also given special roles or titles based on their participation, most notable of which is Sovereign of the Pantheon. User Score is completely reset at the end of each season. You can use the command <span class="command-text">!score</span> to check your User Score and your measured activity in different areas.
+</div>
+
+<button
+class="toggler"
+onclick="toggleContent(1)">
+<img
+class="toggler-image"
+id="js-toggler-1"
+src="Logos/Mobile Toggler Dark.svg">
+<div
+class="section-title"
+id="User_Score#Components">
+Components
+</div>
+</button>
+
+<hr
+class="section-title-line">
+
+<div
+class="toggle-content"
+id="js-toggle-content-1">
+
+<div
+class="content">
+User Score is measured from 10 components, which are Ephemera Condensed, Bowls Started, Bowls Participated, LyricRace IQ, Cleared Floors, First Votes, Hammer Votes, Streak Record, Spent Credits, and Exceeds. These components either contribute to your Base Score or Additional Score, and have different numbers of points each as detailed below. A user's total User Score is the sum of their Base Score and Additional Score. During Season Resets, all of these components reset to 0, which resets all users' User Score. They are still stored in a user's All-Time statistics. Users can view their User Score, activity in each component, and the number of points each component contributes using the command <span class="command-text">!score user</span> where <span class="command-text">user</span> is an optional parameter that defaults to the command user.
+</div>
+
+<div
+class="subsection-title"
+id="User_Score#Components#Base_Score">
+Base Score
+</div>
+
+<div
+class="content">
+Ephemera Condensed, Bowls Started, Bowls Participated, LyricRace IQ, Cleared Floors, First Votes, and Hammer Votes contribute to Base Score. Users can check their activity in all these components using the command <span class="command-text">!score</span>.
+<br> <br>
+Ephemera Condensed refers to the number of Ephemera a user has condensed during a Season, which are worth 25 points each. The price of condensing does not affect the number of points. Using <span class="command-text">!decompress</span> will reduce a user's Ephemera Condensed by 1 for each successful usage. Users can check the users with the 13 highest Ephemera Condensed using the command <span class="command-text">!rankephemeracondensed</span> or its shorter alternative <span class="command-text">!rankephemera</span>.
+<br> <br>
+Bowls Started refers to the number of TaylorBowls a user has started, forced, or queued during a Season, which are worth 20 points each. The Tier, Duration, price, etc. of the TaylorBowl does not affect the number of points. Users can check the users with the 13 highest Bowls Started using the command <span class="command-text">!rankbowlsstarted</span> or its shorter alternative <span class="command-text">!rankstarted</span>.
+<br> <br>
+Bowls Participated refers to the number of Bowls a user has voted in during a Season, which are worth 5 points each. Autovotes and influenced votes also count as 5 points. Hammer Votes and First Votes count as both Bowls Participated and towards their own categories. Users can check the users with the 13 highest Bowls Participated using the command <span class="command-text">!rankbowlsparticipated</span> or its shorter alternative <span class="command-text">!rankbowls</span>.
+<br> <br>
+LyricRace IQ refers to the user's LyricRace IQ in LyricRace, which is worth 1 point per 0.1 IQ, rounded off. Users can check the users with the 13 highest LyricRace IQ using the command <span class="command-text">!rankiq</span>.
+<br> <br>
+Cleared Floors refers to the number of Floors in The Dojo a user has cleared in total during a Season, which are worth 1 point per 13 Cleared Floors, rounded down. The difficulty of the Floor, the Album fought, etc. do not affect the number of points. Users can check the users with the 13 highest Cleared Floors using the command <span class="command-text">!rankclearedfloors</span> or its shorter alternative <span class="command-text">!rankfloors</span>.
+<br> <br>
+First Votes refers to the number of earliest votes in a TaylorBowl, counted across all servers, a user has cast during a Season, which are worth 1 point each. Since they also count as Bowls Participated, each First Vote is worth a total of 6 points. Users can check the users with the 13 highest First Votes using the command <span class="command-text">!rankfirstvotes</span> or its shorter alternative <span class="command-text">!rankfirstvote</span>.
+<br> <br> 
+Hammer Votes refers to the number of "tiebreaking" votes a user has cast during a season, which are worth 1 point each. In more detail, Hammer Votes are the final vote in a bowl across all servers, if it is for the winning song, and said winning song won by a margin of 1 vote. Since they also count as Bowls Participated, each Hammer Vote is woth a total of 6 points. Users can check the users with the 13 highest Hammer Votes using the command <span class="command-text">!rankhammervotes</span> or its shorter alternative <span class="command-text">!rankhammer</span>.
+<br> <br>
+The sum of all points from these 7 categories is a user's Base Score.
+</div>
+
+<div
+class="subsection-title"
+id="User_Score#Components#Additional_Score">
+Additional Score
+</div>
+
+<div
+class="content">
+Streak Record, Spent Credits, and Exceeds contribute to a user's Additional Score. Each component of Additional Score cannot be greater than a certain percentage of a user's Base Score, and once this value is reached, a Surplus version of that component contributes to a user's Additional Score using a different formula. Users can check their activity in all these components using the command <span class="command-text">!score</span>.
+<br> <br>
+Streak Record refers to a user's highest Streak during a Season, which is worth 1% Base Score per Streak Record, up to a maximum of 200% Base Score. Surplus Streak Record is worth 0.01% Base Score per Surplus Streak Record. Users can check the users with the 13 highest Streak Records using the command <span class="command-text">!rankstreakrecords</span> or its shorter alternative <span class="command-text">!rankstreakrecord</span>.
+<br> <br>
+Spent Credits refers to the number of credits a user has spent in a season, excluding credits lost to minigames and credits used to condense Ephemera, which are worth 1 User Score each, up to a maximum of 100% Base Score. Surplus Spent Credits are worth the 0.6th root of total Surplus Spent Credits in points, or given by the formula:
+<div class="formula">
+<p><span>$$\text{Points}=\left(\text{Surplus Spent Credits}\right)^{0.6}$$</span></p>
+</div>
+Users can check the users with the 13 highest Spent Credits using the command <span class="command-text">!rankspentcredits</span> or its shorter alternative <span class="command-text">!rankspent</span>.
+Exceeds refers to the number of times a user has used the command <span class="command-text">!exceed</span> during a Season, which is worth 5% Base Score each, up to a maximum of 100% Base Score. Using the command <span class="command-text">!crystallize</span> does not reduce Exceeds. Surplus Exceeds are worth 1000 points per Exceed. There is no known way to check the users with the highest Exceeds.
+<br> <br>
+In total, excluding Surplus components, a user's Additional Score can reach a maximum of 400% of their Base Score, which effectively multiplies their Base Score by 5.
+</div>
+
+</div>
+
+<button
+class="toggler"
+onclick="toggleContent(2)">
+<img
+class="toggler-image"
+id="js-toggler-2"
+src="Logos/Mobile Toggler Dark.svg">
+<div
+class="section-title"
+id="User_Score#Accolades">
+Accolades
+</div>
+</button>
+
+<hr
+class="section-title-line">
+
+<div
+class="toggle-content"
+id="js-toggle-content-2">
+
+<div
+class="content">
+Based on their User Score, users will be split into User Tiers and can gain special titles based on their activity. The user with the highest User Score is known as The Sovereign, the top 13 users of User Scores are placed in The Council, and the top 3 users of certain components are placed in The Pantheon. These are collectively known as Accolades. At the end of every Season, each user's highest Accolade is added to their list of Accolades. Users can view their past Accolades by using the command <span class="command-text">!accolades user</span> where <span class="command-text">user</span> is an optional parameter that defaults to the command user.
+</div>
+
+<div
+class="subsection-title"
+id="User_Score#Accolades#User_Tiers">
+User Tiers
+</div>
+
+<div
+class="content">
+Like track Tiers, there are 11 User Tiers from 0 to 10. User Tier 0 always has only 13 users, who comprise the Council. Each subsequent Tier is based on the User Score of the 13th highest User Score, or the user with the lowest User Score in Tier 0. The minimum score of Tier 1 is half of the User Score of O-13, the minimum score of Tier 2 is a quarter, etc. For example, if the 13th highest User Score is 100000, then users between 50000 and 100000 are Tier 1. This makes each lower Tier significantly easier to enter as you only need half as much User Score. Users can check their User Tier using the command <span class="command-text">!stats user</span> or <span class="command-text">!score user</span> where <span class="command-text">user</span> is an optional parameter that defaults to the command user.
+</div>
+
+<div
+class="subsection-title"
+id="User_Score#Accolades#The_Council">
+The Council
+</div>
+
+<div
+class="content">
+The Council is made up of the 13 users with the highest User Scores, and these users are known as Councillors. They are given a title of 'O-X' where X is their rank in the Council. For example, the user with the 4th highest User Score is O-4. The Council and these titles are a reference to the SCP Foundation. Based on SCP lore, the O in O-X stands for Overseer, which is referenced in the footer of the embed showing the Council that reads 'The Council. The Command. The Overseers.' Users can check the members of The Council and their User Scores using the command <span class="command-text">!council</span>.
+<br> <br>
+The user with the highest User Score is not known as O-1, but instead as The Sovereign of the Pantheon, shortened to The Sovereign, Sovereign, or colloquially 'sov'.
+<br> <br>
+The top 13 users of User Tier 1 are known as Candidates, but they have no special roles or benefits unlike Councillors. Users can check the Candidates by using the command <span class="command-text">!candidates</span>.
+</div>
+
+<div
+class="subsection-title"
+id="User_Score#Accolades#The_Pantheon">
+The Pantheon
+</div>
+
+<div
+class="content">
+The Sovereign and the users who are top 3 in the following components are given seats, aka included, in the Pantheon: Bowls Participated, Bowls Started, Streak Record, LyricRace IQ, Ephemera Condensed, Spent Credits, and Floors Cleared. Note that even thought First Votes, Hammer Votes, and Exceeds contribute to User Score, they are not given seats in The Pantheon. Users can check the members of The Pantheon and their respective seats by using the command <span class="command-text">!pantheon</span>.
+<br> <br>
+Each of the included components are known as a different Trinity, referring to the 3 users that comprise the seats of that component. The name of each of these in a user's Accolades also varies between components. Users are also given roles for being in The Pantheon, and their names are shortened versions of their respective Accolade names. This is summarised in the following table:
+<div style="white-space: nowrap; overflow-x: auto;">
+<table>
+    <thead>
+        <th>Component</th>
+        <th>Trinity of</th>
+        <th>Accolade Name</th>
+        <th>Role Name</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Bowls Participated</td>
+        <td>Omnipresence</td>
+        <td>Warden of Ubiquity</td>
+        <td>Warden</td>
+    </tr>
+    <tr>
+        <td>Bowls Started</td>
+        <td>Creation</td>
+        <td>Guardian of Totality</td>
+        <td>Guardian</td>
+    </tr>
+    <tr>
+        <td>Streak Record</td>
+        <td>Persistence</td>
+        <td>Regalia of Resolve</td>
+        <td>Regalia</td>
+    </tr>
+    <tr>
+        <td>LyricRace IQ</td>
+        <td>Prescience</td>
+        <td>Vassal of Antiquity</td>
+        <td>Vassal</td>
+    </tr>
+    <tr>
+        <td>Ephemera Condensed</td>
+        <td>varies*</td>
+        <td>Thaumaturge of Reality</td>
+        <td>Thaumaturge</td>
+    </tr>
+    <tr>
+        <td>Spent Credits</td>
+        <td>Prodigals</td>
+        <td>Quaestor of Abundance</td>
+        <td>Quaestor</td>
+    </tr>
+    <tr>
+        <td>Floors Cleared</td>
+        <td>Conquest</td>
+        <td>Vanquisher of Heritage</td>
+        <td>Vanquisher</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+* In the embed for the command <span class="command-text">!pantheon</span>, the name for the Trinity for Ephemera Condensed is randomly selected from the following: Abjuration, the Arcane, Divination, Enchantment, the Esoteric, Illusion, Invocation, the Mystical, the Occult, Transmutation
+<br> <br>
+A user's rank in their respective Pantheon seat also affects their name. Their names based on rank are, in order from 1st to 3rd, Radiant, Ascended, and Attuned. These names are combined with the component name to form the full Accolade name. For example, the 2nd highest user for Bowls Participated is the Ascended Warden of Ubiquity.
+<br> <br>
+Users can only have 1 seat in The Pantheon. If they are eligible for more than 1 position, they are given the seat where they have the highest rank. For example, any seat where the user is 2nd will take precedence over a seat where they are 3rd. If there is more than 1 seat with the same rank, they are given the seat listed earlier in the order used in the above table from top to bottom. For example, a user with the same rank in both Bowls Participated and Spent Credits will be given the seat in Bowls Participated.
+</div>
+
+<div
+class="subsection-title"
+id="User_Score#Accolades#Roles">
+Symbols
+</div>
+
+<div
+class="content">
+Users are given special display roles with symbols if they are in the Council or Pantheon. There is a role for Sovereign, Council, each component in the Pantheon, and the top 3 users of First Votes and Hammer Votes. The Sovereign is classified as a Pantheon role, so a user may not have both Sovereign and a Pantheon component role. However, it is possible for a user to have both Councillor and Sovereign, or Councillor and Pantheon component role. Each of these roles, as well as The Pantheon itself, has an associated symbol taken from astrology, summarised in this table:
+<div class="pantheon-role-table" style="white-space: nowrap; overflow-x: auto;">
+<table>
+    <thead>
+        <th>Component</th>
+        <th>Role Name</th>
+        <th>Symbol Name</th>
+        <th>Symbol</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>User Score</td>
+        <td>Sovereign</td>
+        <td>Sun</td>
+        <td style="text-align: center;">&#x2609;</td>
+    </tr>
+    <tr>
+        <td>User Score</td>
+        <td>Council</td>
+        <td>Moon</td>
+        <td style="text-align: center;">&#x263E;</td>
+    </tr>
+    <tr>
+        <td>Pantheon</td>
+        <td></td>
+        <td>Earth</td>
+        <td style="text-align: center;">&#x1F703;</td>
+    </tr>
+    <tr>
+        <td>Bowls Participated</td>
+        <td>Warden</td>
+        <td>Jupiter</td>
+        <td style="text-align: center;">&#x2643;</td>
+    </tr>
+    <tr>
+        <td>Bowls Started</td>
+        <td>Guardian</td>
+        <td>Saturn</td>
+        <td style="text-align: center;">&#x2644;</td>
+    </tr>
+    <tr>
+        <td>Streak Record</td>
+        <td>Regalia</td>
+        <td>Neptune</td>
+        <td style="text-align: center;">&#x2646;</td>
+    </tr>
+    <tr>
+        <td>LyricRace IQ</td>
+        <td>Vassal</td>
+        <td>Eris</td>
+        <td style="text-align: center;">&#x2BF0;</td>
+    </tr>
+    <tr>
+        <td>Ephemera Condensed</td>
+        <td>Thaumaturge</td>
+        <td>Vesta</td>
+        <td style="text-align: center;">&#x26B6;</td>
+    </tr>
+    <tr>
+        <td>Spent Credits</td>
+        <td>Quaestor</td>
+        <td>Pluto</td>
+        <td style="text-align: center;">&#x2BD3;</td>
+    </tr>
+    <tr>
+        <td>Floors Cleared</td>
+        <td>Vanquisher</td>
+        <td>Ceres</td>
+        <td style="text-align: center;">&#x26B3;</td>
+    </tr>
+    <tr>
+        <td>First Votes</td>
+        <td>Velox</td>
+        <td>Mercury</td>
+        <td style="text-align: center;">&#x263F;</td>
+    </tr>
+    <tr>
+        <td>Hammer Votes</td>
+        <td>Arbiter</td>
+        <td>Chiron</td>
+        <td style="text-align: center;">&#x26B7;</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<br>
+While most of these symbols are chosen without meaning, the use of Sun for The Sovereign, Moon for The Council, Earth for The Pantheon, and Mercury for Velox were intentional. The Sun, Moon, and Earth represent the hierarchy of the three titles. Mercury was chosen as Velox is for First Votes; Mercury is the first planet in the Solar System and the Roman deity Mercury was associated with speed. 
+<br> <br>
+In certain embeds such as those from the commands <span class="command-text">!council</span>, <span class="command-text">!pantheon</span>, <span class="command-text">!candidates</span>, and the rank commands such as <span class="command-text">!rankbowls</span>, The Sovereign has the Sun before their name and users in The Pantheon have two symbols representing their rank and seat. The rank of users in The Pantheon also have their own associated symbols; &#x0393; for 1st/Radiant, &#x0394; for 2nd/Ascended, &#x03A3; for 3rd/Attuned. These symbols were chosen because of the number of strokes it takes to write them, so that The Sovereign, 1st, 2nd, and 3rd places have 1, 2, 3, and 4 strokes representing their hierarchy. For example, the 2nd place user for Streak Record / Ascended Regalia of Resolve will have &#x0394;&#x2646; in front of their name.
+</div>
+
+</div>
+
+<button
+class="toggler"
+onclick="toggleContent(3)">
+<img
+class="toggler-image"
+id="js-toggler-3"
+src="Logos/Mobile Toggler Dark.svg">
+<div
+class="section-title"
+id="Calculations">
+Calculations
+</div>
+</button>
+
+<hr
+class="section-title-line">
+
+<div
+class="toggle-content"
+id="js-toggle-content-3">
+
+<div
+class="subsection-title"
+id="Calculations#User_Score">
+User Score
+</div>
+
+<div
+class="content">
+The calculations for User Score are given by the following formulae. Base Score:
+<div class="formula">
+<p><span>$$\text{Base Score} = 25\cdot\text{Ephemera Condensed}+20\cdot\text{Bowls Started}+5\cdot\text{Bowls Participated}+\bigl\lfloor10\cdot\text{LyricRace IQ}\bigr\rceil+\Biggl\lfloor\cfrac{\text{Cleared Floors}}{13}\Biggr\rfloor+\text{First Votes}+\text{Hammer Votes}$$</span></p>
+</div>
+Streak Record Additional Score (Surplus Streak Record Score only counts when the user's Streak Record is greater than 200):
+<div class="formula">
+<p><span>$$\text{Streak Record Score} = \min(0.01\cdot\text{Streak Record}, 2)\cdot\text{Base Score} \\
+\text{Surplus Streak Record Score} = 0.0001\cdot(\text{Streak Record} - 200)\cdot\text{Base Score}$$</span></p>
+</div>
+Spent Credits Additional Score (Surplus Spent Credits Score only counts when the user's Spent Credits is greater than their Base Score):
+<div class="formula">
+<p><span>$$\text{Spent Credits Score} = \min(\text{Spent Credits}, \text{Base Score}) \\
+\text{Surplus Spent Credits Score} = (\text{Spent Credits} - \text{Base Score})^{0.6}$$</span></p>
+</div>
+Exceeds Additional Score (Surplus Exceeds Score only counts when the user's Exceeds is greater than 20):
+<div class="formula">
+<p><span>$$\text{Exceeds Score} = \min(0.05\cdot\text{Exceeds}, 1)\cdot\text{Base Score} \\
+\text{Surplus Exceeds Score} = 1000\cdot(\text{Exceeds} - 20)$$</span></p>
+</div>
+Total User Score:
+<div class="formula">
+<p><span>$$\text{User Score}=\text{Base Score}+\text{Streak Record Score}+\text{Surplus Streak Record Score}+\text{Spent Credits Score}+\text{Surplus Spent Credits Score}+\text{Exceeds Score}+\text{Surplus Exceeds Score}$$</span></p>
+</div>
+</div>
+
+<div
+class="subsection-title"
+id="Calculations#User_Tiers">
+User Tiers
+</div>
+
+<div
+class="content">
+The minimum User Score required to enter a given User Tier is given by the formula:
+<div class="formula">
+<p><span>$$\text{Minimum User Score}=\text{O-13 Score}\cdot \left(\cfrac{1}{2}\right)^{\text{User Tier}}$$</span></p>
+</div>
+</div>
+
+</div>
+
+<button
+class="toggler"
+onclick="toggleContent(4)">
+<img
+class="toggler-image"
+id="js-toggler-4"
+src="Logos/Mobile Toggler Dark.svg">
+<div
+class="section-title"
+id="Glossary">
+Glossary
+</div>
+</button>
+
+<hr
+class="section-title-line">
+
+<div
+class="toggle-content"
+id="js-toggle-content-4">
+
+<div
+class="subsection-title"
+id="Glossary#List_of_Commands">
+List of Commands
+</div>
+
+<table>
+    <thead>
+        <th>Command</th>
+        <th>Description</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td><span class="command-text">!accolades user</span></td>
+        <td>Displays a user's Accolades from all past Seasons they were active in. <br> <span class="command-text">user</span> is an optional parameter, defaults to command user.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!candidates</span></td>
+        <td>Displays the list of Candidates and their User Scores.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!council</span></td>
+        <td>Displays The Council and their User Scores.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!pantheon</span></td>
+        <td>Displays The Pantheon and their Pantheon seats.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!rankbowls</span></td>
+        <td>Displays the 13 users with the highest Bowls Joined. <br> Alternative forms: <span class="command-text">!rankbowlsjoined</span></td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!rankephemera</span></td>
+        <td>Displays the 13 users with the highest Ephemera Condensed. <br> Alternative forms: <span class="command-text">!rankephemeracondensed</span></td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!rankfirstvote</span></td>
+        <td>Displays the 13 users with the highest First Votes. <br> Alternative forms: <span class="command-text">!rankfirstvotes</span></td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!rankfloors</span></td>
+        <td>Displays the 13 users with the highest Floors Cleared. <br> Alternative forms: <span class="command-text">!rankfloorscleared</span></td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!rankhammer</span></td>
+        <td>Displays the 13 users with the highest Hammer Votes. <br> Alternative forms: <span class="command-text">!rankhammervotes</span></td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!rankiq</span></td>
+        <td>Displays the 13 users with the highest LyricRace IQ.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!rankspent</span></td>
+        <td>Displays the 13 users with the highest Credits Spent. <br> Alternative forms: <span class="command-text">!rankspentcredits</span></td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!rankstarted</span></td>
+        <td>Displays the 13 users with the highest Bowls Started. <br> Alternative forms: <span class="command-text">!rankbowlsstarted</span></td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!rankstreakrecord</span></td>
+        <td>Displays the 13 users with the highest Streak Record. <br> Alternative forms: <span class="command-text">!rankstreakrecords</span></td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!score user</span></td>
+        <td>Displays a user's User Tier, User Score, and the contributing components to their User Score. <br> <span class="command-text">user</span> is an optional parameter, defaults to command user. <br> Alternative forms: <span class="command-text">!userscore user</span></td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!stats user</span></td>
+        <td>Displays a user's statistics. <br> <span class="command-text">user</span> is an optional parameter, defaults to command user. <br> Alternative forms: <span class="command-text">!bowlstats user</span></td>
+    </tr>
+    </tbody>
+</table>
+
+<div
+class="subsection-title"
+id="Glossary#List_of_Formulae">
+List of Formulae
+</div>
+
+<div
+class="content">
+<b>1.1</b> &ensp; Base Score:
+<div class="formula">
+<p><span>$$\text{Base Score} = 25\cdot\text{Ephemera Condensed}+20\cdot\text{Bowls Started}+5\cdot\text{Bowls Participated}+\bigl\lfloor10\cdot\text{LyricRace IQ}\bigr\rceil+\Biggl\lfloor\cfrac{\text{Cleared Floors}}{13}\Biggr\rfloor+\text{First Votes}+\text{Hammer Votes}$$</span></p>
+</div>
+
+<b>1.2</b> &ensp; Streak Record Additional Score (Surplus Streak Record Score only counts when the user's Streak Record is greater than 200):
+<div class="formula">
+<p><span>$$\text{Streak Record Score} = \min(0.01\cdot\text{Streak Record}, 2)\cdot\text{Base Score} \\
+\text{Surplus Streak Record Score} = 0.0001\cdot(\text{Streak Record} - 200)\cdot\text{Base Score}$$</span></p>
+</div>
+
+<b>1.3</b> &ensp; Spent Credits Additional Score (Surplus Spent Credits Score only counts when the user's Spent Credits is greater than their Base Score):
+<div class="formula">
+<p><span>$$\text{Spent Credits Score} = \min(\text{Spent Credits}, \text{Base Score}) \\
+\text{Surplus Spent Credits Score} = (\text{Spent Credits} - \text{Base Score})^{0.6}$$</span></p>
+</div>
+
+<b>1.4</b> &ensp; Exceeds Additional Score (Surplus Exceeds Score only counts when the user's Exceeds is greater than 20):
+<div class="formula">
+<p><span>$$\text{Exceeds Score} = \min(0.05\cdot\text{Exceeds}, 1)\cdot\text{Base Score} \\
+\text{Surplus Exceeds Score} = 1000\cdot(\text{Exceeds} - 20)$$</span></p>
+</div>
+
+<b>1.5</b> &ensp; Total User Score:
+<div class="formula">
+<p><span>$$\text{User Score}=\text{Base Score}+\text{Streak Record Score}+\text{Surplus Streak Record Score}+\text{Spent Credits Score}+\text{Surplus Spent Credits Score}+\text{Exceeds Score}+\text{Surplus Exceeds Score}$$</span></p>
+</div>
+
+<b>2</b> &ensp; Minimum User Score required to enter a User Tier:
+<div class="formula">
+<p><span>$$\text{Minimum User Score}=\text{O-13 Score}\cdot \left(\cfrac{1}{2}\right)^{\text{User Tier}}$$</span></p>
+</div>
+
+</div>
+
+<div
+class="subsection-title"
+id="Glossary#List_of_Terms">
+List of Terms
+</div>
+
+<table>
+    <thead>
+        <th>Term</th>
+        <th>Definition</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Candidate</td>
+        <td>A user who is in the top 14 to 26 highest User Scores and is in User Tier 1.</td>
+    </tr>
+    <tr>
+        <td>Component</td>
+        <td>An area of activity in TaylorBowl that contributes to User Score.</td>
+    </tr>
+    <tr>
+        <td>Councillor</td>
+        <td>A user in The Council; a user who is in the top 13 highest User Scores.</td>
+    </tr>
+
+    </tbody>
+</table>
+
+</div>
+
+</div>
+
+<div
+class="version-text">
+Updated for BowlBot Version 17.2.6
+</div>
+
+</body>
+
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="Code.js"></script>
+
+</html>
