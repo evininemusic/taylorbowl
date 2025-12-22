@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <title>
+        Lyric Race
+    </title>
+
+    <link 
+    rel="icon" 
+    href="Logos/TaylorBowl Logo.svg" 
+    type="image/icon type">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Styles.css">
+
+</head>
+
+<body>
+
+<div
+class="page-header">
+
+    <a
+    class="taylorbowl-logo"
+    id="js-taylorbowl-logo"
+    href="https://taylorbowl.wiki/">
+    <img
+    src="Logos/TaylorBowl Logo.svg"
+    class="taylorbowl-logo-image">
+    <span
+    class="taylorbowl-logo-text">
+        TAYLORBOWL WIKI
+    </span>
+    </a>
+
+    <button
+    class="lg-theme-button"
+    id="js-lg-theme-button"
+    onclick="toggleTheme()">
+    <img
+    class="theme-logo"
+    id="js-theme-logo"
+    src="Logos/Theme Logo Dark.svg">
+    </button>
+
+    <button
+    class="lg-open-search-button"
+    id="js-lg-open-search-button"
+    onclick="openSearch()">
+    <img 
+    class="search-logo" 
+    id="js-search-logo"
+    src="Logos/Search Logo Dark.svg">
+    </button>
+
+    <input 
+    class="lg-search-input"
+    id="js-lg-search-input"
+    type="search"
+    placeholder="Search pages..."
+    onkeydown="processQuery()"
+    onfocusout="closeSearch()">
+
+    <button
+    class="lg-enter-search-button"
+    id="js-lg-enter-search-button"
+    onmousedown="redirect()">
+    <img 
+    class="search-logo" 
+    id="js-new-search-logo"
+    src="Logos/Search Logo Dark.svg">
+    </button>
+
+    <button
+    class="open-menu-button"
+    id="js-open-menu-button"
+    onclick="openMenu()">
+    <img
+    class="menu-logo"
+    id="js-menu-logo"
+    src="Logos/Menu Logo Dark.svg">
+    </button>
+
+</div>
+
+<div 
+class="page-cover-advertisement" 
+id="js-page-cover-advertisement"
+onclick="closeAdvertisement()"></div>
+
+<div
+class="advertisement"
+id="js-advertisement">
+<div
+class="advertisement-text">
+Enjoying the Wiki? This Wiki is created and funded solely by one person. If you find it helpful, feel free to support me via my <a class="text-actionable-link" href="https://ko-fi.com/evinine">Kofi</a>!
+</div>
+<div
+class="escape-text">
+Click anywhere or press Escape to close.
+</div>
+</div>
+
+<div 
+class="page-cover" 
+id="js-page-cover"
+onclick="closeMenu()"></div>
+<div
+class="menu"
+id="js-menu">
+
+<button
+class="menu-button"
+id="js-close-menu-button"
+onclick="closeMenu()">
+<img
+class="close-menu-logo"
+id="js-close-menu-logo"
+src="Logos/Close Menu Logo Dark.svg">
+Close Menu
+</button>
+
+<button
+class="menu-button"
+onclick="toggleTheme()">
+<img
+class="menu-theme-logo"
+id="js-menu-theme-logo"
+src="Logos/Theme Logo Dark.svg">
+<span id="js-mode-text">Light Mode</span>
+</button>
+
+<button
+class="menu-button"
+onclick="window.location.href = `https://taylorbowl.wiki/search`">
+<img
+class="menu-search-logo"
+id="js-menu-search-logo"
+src="Logos/Search Logo Dark.svg">
+Search Pages
+</button>
+
+<hr
+class="menu-line">
+
+<div
+class="contents-list">
+    <div
+    class="contents-list-title">
+        Table of Contents
+    </div>
+    <div>
+        1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Mechanics"> Mechanics <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 1.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Mechanics#Starting"> Starting <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 1.2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Mechanics#Questions"> Questions <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 1.3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Mechanics#Credits"> Credits <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 1.4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Mechanics#Lyric_IQ"> Lyric IQ <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 1.5 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Mechanics#Race_Stats"> Race Stats <br> </a>
+    </div>
+    <div>
+        2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Calculations"> Calculations <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 2.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Calculations#Maximum_IQ"> Maximum IQ <br> </a>
+    </div>
+    <div>
+        3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Glossary"> Glossary <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 3.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Glossary#List_of_Commands"> List of Commands <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 3.2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Glossary#List_of_Formulae"> List of Formulae <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 3.3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Lyric_Race#Glossary#List_of_Terms"> List of Terms <br> </a>
+    </div>
+</div>
+
+</div>
+
+<div
+class="page-title">
+Lyric Race
+</div>
+<hr
+class="page-title-line">
+
+<div
+class="content"
+id="js-page-summary">
+Lyric Race is a time-based questionaire minigame about Taylor Swift songs. 13 questions, of which there are 6 different types, are asked one after the other, and all users playing must answer within 30 seconds. Between questions, there is a 10 second break. At the end of the Lyric Race, each users' total time taken to answer all 13 questions is converted into a score called IQ and <a class="text-actionable-link" href="https://taylorbowl.wiki/Credits" data-tippy-content="Credits form the basis of the TaylorBowl economy. They are the most accessible and commonly used currency.">credits</a>. IQ is used for <a class="text-actionable-link" href="https://taylorbowl.wiki/User_Score" data-tippy-content="User Score is a measure of a user's overall activity in TaylorBowl.">User Score</a> and to earn extra credits by <a class="text-actionable-link" href="https://taylorbowl.wiki/Votes" data-tippy-content="Votes are what decide the winner and loser of a TaylorBowl.">voting</a> in <a class="text-actionable-link" href="https://taylorbowl.wiki/TaylorBowls" data-tippy-content="TaylorBowls are the primary minigame featured in the TaylorBowl Discord server.">TaylorBowls</a>.
+</div>
+
+
+<button
+class="toggler"
+onclick="toggleContent(1)">
+<img
+class="toggler-image"
+id="js-toggler-1"
+src="Logos/Mobile Toggler Dark.svg">
+<div
+class="section-title"
+id="Mechanics">
+Mechanics
+</div>
+</button>
+
+<hr
+class="section-title-line">
+
+<div
+class="toggle-content"
+id="js-toggle-content-1">
+
+<div
+class="content">
+
+</div>
+
+<div
+class="subsection-title"
+id="Mechanics#Starting">
+Starting
+</div>
+
+<div
+class="content">
+Users can use the command <span class="command-text">!lyricrace</span> to start a Lyric Race, if there is no ongoing Lyric Race already. A 30 second timer will start during which other users can join also by using the command <span class="command-text">!lyricrace</span>.
+</div>
+
+<div
+class="subsection-title"
+id="Mechanics#Questions">
+Questions
+</div>
+
+<div
+class="content">
+13 questions are asked for each Lyric Race, and users have 30 seconds to answer each question using the command <span class="command-text">/lyricrace</span>. Note that this is a slash command, and is different from the regular command used to start Lyric Races. Between each question, there is a 10 second break. Each users' answer and <a class="text-actionable-link" href="https://taylorbowl.wiki/Bots#BowlBot" data-tippy-content="BowlBot is the main bot in TaylorBowl and all features stem from it.">BowlBot's</a> responses to these answers will be hidden from other users. Users can answer as many times as they like, even if they answered wrong. If a user is the first to answer correctly, the response will indicate as such. Otherwise, the response will say how many seconds slower their answer was compared to the fastest answer. If a user does not answer the question correctly in 30 seconds, their time taken to answer is considered as 30 seconds.
+<br> <br>
+If all users answer the question correctly in less than 30 seconds, the Race will end that question and begin the break before the next question. If no users answer the question correctly in 30 seconds, the Race will replace the question with another question of the same type and redo that round of answering. If this happens 3 times, the question is skipped and all users have 30 seconds added to their time. If no users answer the question correctly in 30 seconds, and the previous question was skipped, the current question will be immediately skipped. If this happens 2 times in a row, the Race is ended prematurely, and all users have 30 seconds per remaining question added to their time.
+<br> <br>
+For answers that are song titles, punctuation is excluded from the answer, but special characters are included. Song titles of note are: <span class="song-text">Mr. Perfectly Fine</span> is <span class="song-text">Mr Perfectly Fine</span>, <span class="song-text">Come Back...Be Here</span> is <span class="song-text">Come Back Be Here</span>, <span class="song-text">Is It Over Now?</span> is <span class="song-text">Is It Over Now</span>, <span class="song-text">Miss Americana & The Heartbreak Prince</span> is unchanged, <span class="song-text">Anti-Hero</span> is <span class="song-text">Antihero</span>, and <span class="song-text">I Can Fix Him (No Really I Can)</span> is <span class="song-text">I Can Fix Him No Really I Can</span>. These rules also apply to acronyms (see paragraph below). Capitalisation is not necessary.
+<br> <br>
+If the answer to a question is a song title, and the song title is at least 3 words long, users can answer using an acronym of the song title. Acronyms of note are: <span class="song-text">Mary's Song (Oh My My My)</span> is <span class="song-text">MSOMMM</span>, <span class="song-text">All Too Well (10 Minute Version)</span> is <span class="song-text">ATW1MV</span>, <span class="song-text">I Can Fix Him (No Really I Can)</span> is <span class="song-text">ICFHNRIC</span>, <span class="song-text">Miss Americana & The Heartbreak Prince</span> is <span class="song-text">MA&THP</span>, and all songs with features count the word "ft." e.g. <span class="song-text">Bad Blood ft. Kendrick Lamar</span> is <span class="song-text">BBFKL</span>. Capitalisation is not necessary.
+<br> <br>
+There are 6 types of questions in Lyric Race, and each has a corresponding colour to indicate what type of question is next during Lyric Races.
+<ol>
+    <li>Blue represents 'name the song from lyrics' questions. A few words from a Taylor Swift song are provided; users answer with the correct song name.</li>
+    <li>Purple represents 'finish the lyrics' questions. A few words from a Taylor Swift song and the number of required words in the answer are provided; users answer with the correct words that follow the given lyrics.</li>
+    <li>Orange represents 'name a song that has a word' questions. One word from at least one Taylor Swift song is given; users answer with a Taylor Swift song that contains that word. Multiple answers are accepted if the word appears in multiple songs.</li>
+    <li>Brown represents 'name the song from track number and album' questions. A Taylor Swift album and track number is given; users answer with the Taylor Swift song that is the given track number in the given album.</li>
+    <li>Black represents 'odd one out' questions. At least 3 Taylor Swift songs are given where 1 is of either a different track number or a different album; users answer with the song that is of the different attribute.</li>
+    <li>White represents 'missing song' questions. A list of Taylor Swift songs from the same album with at least 1 song missing is given, where the track order is preserved but the initial song in the list is random; users answer with a Taylor Swift song that is missing from that album. Multiple answers are accepted if multiple songs are missing.</li>
+</ol>
+If during a Race, BowlBot has an error and the Race does not continue, users can use the command <span class="command-text">!redflag</span> to end the LyricRace prematurely.
+</div>
+
+<div
+class="subsection-title"
+id="Mechanics#Credits">
+Credits
+</div>
+
+<div
+class="content">
+Users are awarded <a class="text-actionable-link" href="https://taylorbowl.wiki/Credits" data-tippy-content="Credits form the basis of the TaylorBowl economy. They are the most accessible and commonly used currency.">credits</a> for completing a Lyric Race, given by the formula:
+<div class="formula">
+<p><span>$$\text{Credits}=3\cdot\Biggl\lfloor\cfrac{390-\text{Score}}{2\cdot1.15^{\text{Placement}}}\Biggr\rceil$$</span></p>
+</div>
+In other, more understandable words, users recieve more IQ the faster they complete a Lyric Race and the lower their score from that Race. Users who have lower placements, e.g. placed 5th in a Race, get a small penalty to their credits awarded. Each placement below 1st divides the awarded credits by 1.15, which is about a 13% reduction per placement. However, being faster than more people while having the same placement will not award more credits. For example, a score of 100 seconds and placing 1st will award 378 credits whether it is a 1 person race or 10 person race.
+</div>
+
+<div
+class="subsection-title"
+id="Mechanics#Lyric_IQ">
+Lyric IQ
+</div>
+
+<div
+class="content">
+Users are awarded Lyric IQ for completing a Lyric Race. The faster they complete one and the lower their score, the more IQ they gain from that Race. However, the more Races they have already completed, the smaller the gain in IQ, especially if the score they obtain is high compared to their previous Races. Users can check their Lyric IQ using the commands <span class="command-text">!racestats</span> and <span class="command-text">!score</span>. Users can check the users with the 13 highest Lyric IQs using the command <span class="command-text">!rankiq</span>.
+<br> <br>
+In more detail: A user's Lyric IQ is based on each of their previous completed Races. In the code, their list of scores taken is arranged from lowest to highest and numbered starting from 0. They are awarded IQ from each by subtracting their score from 390 then divided by 100. For example, a score of 100 seconds would award 2.9 IQ. However, the further in the list the score is, the less IQ it awards. Each position further back multiplies the regular IQ awarded by 0.99. For example, if that score of 100 was the user's 4th lowest score, it would be multiplied by \(0.99^4\) or about 0.961, so it would award 2.79 IQ instead. When new scores are added, the list of past scores is recalculated.
+<br> <br>
+When users get lower scores against other users in a Lyric Race, they can gain more IQ. The two lowest scores, or one if there is only one other user, of the users they won against are also added to that user's list of scores. This means that a user winning against players with scores that are high relative to their past scores is less beneficial than winning against players with low relative scores. Losing a Race to another user will not add their score to your list. For example, if user A places 2nd in a 5 person race, they are awarded their score and the scores of the users in 3rd and 4th place.
+<br> <br>
+Lyric IQ is also split into levels of 100 IQ each. When a user reaches a new level, such as going from 99 IQ to 100 IQ, their past scores (excluding the one they just obtained) are deleted and 100 IQ is added to their IQ. However, it also makes it harder to gain IQ. Instead of multiplying scores by 0.99 the for each position further back they are in a user's list of scores, the number is 0.007 less for every level the user has gone up. For example, a user who is at 200 IQ has gone up two levels, so their score multiplier is 0.976.
+<br> <br>
+When a user is in the last 10 IQ of their current level, e.g. between 290 and 299.99 IQ, also known as a Promotion Zone, they can promote. This immediately places them at the next level. For a user to promote, they must win a Race against another user who is also in a Promotion Zone, and their level must be equal to or higher than the user who promotes. However, a user that loses a Race to another user that promotes will lose IQ by having their second lowest score deleted. This is the only way to lose IQ. It is not necessary to promote to reach a higher level, but it is typically faster than obtaining the IQ normally.
+<br> <br>
+Lyric IQ gives users some small benefits. For every 13 IQ they have, users gain 1 extra credit from voting in TaylorBowls. These extra credits are added after multipliers, so they are not affected by a user's <a class="text-actionable-link" href="https://taylorbowl.wiki/Votes#Streak" data-tippy-content="">Streak</a>, being a Server Booster or <a class="text-actionable-link" href="https://taylorbowl.wiki/Kintsugi_&_Potentia" data-tippy-content="Kintsugi are users that have subscribed to Bianca's Kofi.">Kintsugi</a>, or being <a class="text-actionable-link" href="https://taylorbowl.wiki/Votes#Invocations_&_Evocations#Enhance">Enhanced</a>. For every 0.1 IQ they have, users also gain 1 <a class="text-actionable-link" href="https://taylorbowl.wiki/" data-tippy-content="User Score is a measure of a user's overall activity in TaylorBowl.">User Score</a>. Users can check their extra credits using the command <span class="command-text">!streak</span> and their User Score from Lyric IQ using the command <span class="command-text">!score</span>.
+</div>
+
+<div
+class="subsection-title"
+id="Mechanics#Race_Stats">
+Race Stats
+</div>
+
+<div
+class="content">
+Users' overall ranking, victories, wins to losses, races joined, and fastest time are kept track of. Users can use the command <span class="command-text">!racestats</span> to view these statistics. Victories refer to the number of 1st placements a user has achieved, including in solo Races. Wins refer to the number of users a user has placed higher than in Races; conversely Losses refer to the number of users a user has placed lower than in Races. For example, a user that places 2nd in a 5 person Race will gain 3 Wins and 1 Loss.
+</div>
+
+</div>
+
+<button
+class="toggler"
+onclick="toggleContent(2)">
+<img
+class="toggler-image"
+id="js-toggler-2"
+src="Logos/Mobile Toggler Dark.svg">
+<div
+class="section-title"
+id="Calculations">
+Calculations
+</div>
+</button>
+
+<hr
+class="section-title-line">
+
+<div
+class="toggle-content"
+id="js-toggle-content-2">
+
+<div
+class="subsection-title"
+id="Calculations#Maximum_IQ">
+Maximum IQ
+</div>
+
+<div
+class="content">
+It is possible to calculate a theoretical maximum Lyric IQ for a user based on their lowest score. The reduction in IQ based on a score's position in the user's list of scores is multiplicative, which is similar to a geometric series. Thus, by simplifying a user's list of scores to an infinite number of scores which are all their lowest score, an infinite geometric series is obtained, and its sum given by the formula:
+<div class="formula">
+<p><span>$$S=\cfrac{a_{1}}{1-r} \quad \text{for } |r| < 1 $$</span></p>
+</div>
+where \(a_{1}\) is the first term and \(r\) is the common ratio.
+<br> <br>
+Here, the first term is 390 minus the user's lowest score obtained in their current level and the common ratio is given by the formula:
+<div class="formula">
+<p><span>$$r=0.99-0.007\cdot\text{Level}$$</span></p>
+</div>
+Thus, a user's theoretical maximum Lyric IQ is given by the formula:
+<div class="formula">
+<p><span>$$\text{Max IQ}\approx100\cdot\text{Level}+\cfrac{390-\text{Lowest Score}}{1-(0.99-0.007\cdot\text{Level})}\cdot0.01 \\
+\text{Max IQ}\approx100\cdot\text{Level}+\cfrac{390-\text{Lowest Score}}{1+0.7\cdot\text{Level}}$$</span></p>
+</div>
+Note that the fastest time in the command <span class="command-text">!racestats</span> might not be accurate for this calculation as that time might have occured when the user was at a lower level.
+<br> <br>
+Users can use the EsteBot command <span class="command-text">/maxiq</span> to calculate their theoretical maximum IQ.
+</div>
+
+</div>
+
+<button
+class="toggler"
+onclick="toggleContent(3)">
+<img
+class="toggler-image"
+id="js-toggler-3"
+src="Logos/Mobile Toggler Dark.svg">
+<div
+class="section-title"
+id="Glossary">
+Glossary
+</div>
+</button>
+
+<hr
+class="section-title-line">
+
+<div
+class="toggle-content"
+id="js-toggle-content-3">
+
+<div
+class="subsection-title"
+id="Glossary#List_of_Commands">
+List of Commands
+</div>
+
+<table>
+    <thead>
+        <th>Command</th>
+        <th>Description</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td><span class="command-text">!lyricrace</span></td>
+        <td>Begins a new LyricRace or joins an existing one.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">/lyricrace answer</span></td>
+        <td>Submits an answer for the current LyricRace.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">/maxiq</span></td>
+        <td>Calculates a user's (unachievable) theoretical maximum IQ.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!racestats user</span></td>
+        <td>Displays a user's Lyric Race statistics. <br> <span class="command-text">user</span> is an optional parameter; defaults to command user.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!rankiq</span></td>
+        <td>Displays the users with the 13 highest Lyric IQs.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!redflag</span></td>
+        <td>Ends a LyricRace in case there is an error.</td>
+    </tr>
+    </tbody>
+</table>
+
+<div
+class="subsection-title"
+id="Glossary#List_of_Formulae">
+List of Formulae
+</div>
+
+<div
+class="content">
+<b>1</b> &ensp; A user's theoretical maximum IQ based on their lowest score:
+<div
+class="formula">
+<p><span>$$\text{Max IQ}\approx100\cdot\text{Level}+\cfrac{390-\text{Lowest Score}}{1+0.7\cdot\text{Level}}$$</span></p>
+</div>
+
+<div
+class="subsection-title"
+id="Glossary#List_of_Terms">
+List of Terms
+</div>
+
+<table>
+    <thead>
+        <th>Term</th>
+        <th>Definition</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Level</td>
+        <td>A division of 100 Lyric IQ.</td>
+    </tr>
+    <tr>
+        <td>Loss</td>
+        <td>Placing lower than another user in a LyricRace.</td>
+    </tr>
+    <tr>
+        <td>Promote</td>
+        <td>The act of increasing your Lyric IQ past a multiple of 100.</td>
+    </tr>
+    <tr>
+        <td>Promotion Zone</td>
+        <td>The last 10 IQ of a level.</td>
+    </tr>
+    <tr>
+        <td>Track Order</td>
+        <td>The order of songs on an album.</td>
+    </tr>
+    <tr>
+        <td>Track Number</td>
+        <td>The placement of a song based on the track order of its album.</td>
+    </tr>
+    <tr>
+        <td>Win</td>
+        <td>Placing higher than another user in a LyricRace.</td>
+    </tr>
+    <tr>
+        <td>Victory</td>
+        <td>Placing 1st in a LyricRace, including in solo Races.</td>
+    </tr>
+    </tbody>
+</table>
+
+</div>
+
+</div>
+
+<div
+class="version-text">
+Updated for BowlBot Version 17.2.6
+</div>
+
+</body>
+
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="Code.js"></script>
+
+</html>
