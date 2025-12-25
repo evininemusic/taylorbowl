@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <title>
+        The Dojo
+    </title>
+
+    <link 
+    rel="icon" 
+    href="Logos/TaylorBowl Logo.svg" 
+    type="image/icon type">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Styles.css">
+
+</head>
+
+<body>
+
+<div
+class="page-header">
+
+    <a
+    class="taylorbowl-logo"
+    id="js-taylorbowl-logo"
+    href="https://taylorbowl.wiki/">
+    <img
+    src="Logos/TaylorBowl Logo.svg"
+    class="taylorbowl-logo-image">
+    <span
+    class="taylorbowl-logo-text">
+        TAYLORBOWL WIKI
+    </span>
+    </a>
+
+    <button
+    class="lg-theme-button"
+    id="js-lg-theme-button"
+    onclick="toggleTheme()">
+    <img
+    class="theme-logo"
+    id="js-theme-logo"
+    src="Logos/Theme Logo Dark.svg">
+    </button>
+
+    <button
+    class="lg-open-search-button"
+    id="js-lg-open-search-button"
+    onclick="openSearch()">
+    <img 
+    class="search-logo" 
+    id="js-search-logo"
+    src="Logos/Search Logo Dark.svg">
+    </button>
+
+    <input 
+    class="lg-search-input"
+    id="js-lg-search-input"
+    type="search"
+    placeholder="Search pages..."
+    onkeydown="processQuery()"
+    onfocusout="closeSearch()">
+
+    <button
+    class="lg-enter-search-button"
+    id="js-lg-enter-search-button"
+    onmousedown="redirect()">
+    <img 
+    class="search-logo" 
+    id="js-new-search-logo"
+    src="Logos/Search Logo Dark.svg">
+    </button>
+
+    <button
+    class="open-menu-button"
+    id="js-open-menu-button"
+    onclick="openMenu()">
+    <img
+    class="menu-logo"
+    id="js-menu-logo"
+    src="Logos/Menu Logo Dark.svg">
+    </button>
+
+</div>
+
+<div 
+class="page-cover-advertisement" 
+id="js-page-cover-advertisement"
+onclick="closeAdvertisement()"></div>
+
+<div
+class="advertisement"
+id="js-advertisement">
+<div
+class="advertisement-text">
+Enjoying the Wiki? This Wiki is created and funded solely by one person. If you find it helpful, feel free to support me via my <a class="text-actionable-link" href="https://ko-fi.com/evinine">Kofi</a>!
+</div>
+<div
+class="escape-text">
+Click anywhere or press Escape to close.
+</div>
+</div>
+
+<div 
+class="page-cover" 
+id="js-page-cover"
+onclick="closeMenu()"></div>
+<div
+class="menu"
+id="js-menu">
+
+<button
+class="menu-button"
+id="js-close-menu-button"
+onclick="closeMenu()">
+<img
+class="close-menu-logo"
+id="js-close-menu-logo"
+src="Logos/Close Menu Logo Dark.svg">
+Close Menu
+</button>
+
+<button
+class="menu-button"
+onclick="toggleTheme()">
+<img
+class="menu-theme-logo"
+id="js-menu-theme-logo"
+src="Logos/Theme Logo Dark.svg">
+<span id="js-mode-text">Light Mode</span>
+</button>
+
+<button
+class="menu-button"
+onclick="window.location.href = `https://taylorbowl.wiki/search`">
+<img
+class="menu-search-logo"
+id="js-menu-search-logo"
+src="Logos/Search Logo Dark.svg">
+Search Pages
+</button>
+
+<hr
+class="menu-line">
+
+<div
+class="contents-list">
+    <div
+    class="contents-list-title">
+        Table of Contents
+    </div>
+    <div>
+        1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Songs"> Songs <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 1.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Songs#Obtaining"> Obtaining <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 1.2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Songs#Chapter_&_Vault"> Chapter & Vault <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 1.3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Songs#Scrapping_&_Pieces"> Scrapping & Pieces <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 1.4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Songs#Trading"> Trading <br> </a>
+    </div>
+    <div>
+        2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Combat_Basic_Mechanics"> Combat - Basic Mechanics <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 2.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Combat_Basic_Mechanics#Stats"> Stats <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 2.2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Combat_Basic_Mechanics#Levels"> Stats <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 2.3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Combat_Basic_Mechanics#Elements"> Elements <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 2.4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Combat_Basic_Mechanics#Fight"> Fight <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 2.5 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Combat_Basic_Mechanics#Battle"> Battle <br> </a>
+    </div>
+    <div>
+        3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/Combat_Advanced_Mechanics"> Combat - Advanced Mechanics <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 3.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Combat_Advanced_Mechanics#Elemental_Resonance"> Elemental Resonance <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 3.2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Combat_Advanced_Mechanics#Damage"> Damage <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 3.3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Combat_Advanced_Mechanics#Turns"> Turns <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 3.4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Combat_Advanced_Mechanics#Notation"> Notation <br> </a>
+    </div>
+    <div>
+        4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Glossary"> Glossary <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 4.1 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Glossary#List_of_Commands"> List of Commands <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 4.2 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Glossary#List_of_Formulae"> List of Formulae <br> </a>
+    </div>
+    <div>
+        &emsp; &ensp; 4.3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Glossary#List_of_Terms"> List of Terms <br> </a>
+    </div>
+</div>
+
+</div>
+
+<div
+class="page-title">
+The Dojo
+</div>
+<hr
+class="page-title-line">
+
+<div
+class="content"
+id="js-page-summary">
+The Dojo is a collectible card trading game using Taylor Swift songs as the collectible items. It features a combat and level system using songs where users can fight against other users or pre-determined opponents.
+</div>
+
+
+<button
+class="toggler"
+onclick="toggleContent(1)">
+<img
+class="toggler-image"
+id="js-toggler-1"
+src="Logos/Mobile Toggler Dark.svg">
+<div
+class="section-title"
+id="Songs">
+Songs
+</div>
+</button>
+
+<hr
+class="section-title-line">
+
+<div
+class="toggle-content"
+id="js-toggle-content-1">
+
+<div
+class="content">
+Songs are the collectible items in The Dojo. Users can obtain them using the command <span class="command-text">!discover</span>, which adds them to their collection known as a Chapter. Chapters have 13 slots to store Songs, but users can get more slots by expanding their Vault using the command <span class="command-text">!expand</span>. Users can also rearrange Songs in their Chapter and Vault using the commands <span class="command-text">!swap slot1 slot2</span> and <span class="command-text">!movetofront slots</span>. Users can also remove Songs from their Chapter or Vault by destroying them using the command <span class="command-text">!scrap slot</span>. Doing so will refund Pieces, and the number of Pieces obtained increases with the Level of the Song that was Scrapped. Users can also trade Songs and Pieces with each other using the command <span class="command-text">!trade selling buying user</span>.
+<br> <br>
+This section excludes information about Levels, Stats, Stars, and Elements as they are combat-related. Please refer to the Combat - Basic Mechanics section for the relevant information.
+</div>
+
+<div
+class="subsection-title"
+id="Songs#Obtaining">
+Obtaining
+</div>
+
+<div
+class="content">
+Users can Discover Songs, which adds them to the user's collection, using the command <span class="command-text">!discover number</span> where <span class="command-text">number</span> is the number of Songs a user wants to Discover. Each Song obtained using Discover costs 40% of the Base Price in credits.
+<br> <br>
+Users can also use Pieces (refer to subsection below) to Hunt and Stalk Songs. Users can obtain Songs from a specified album using the command <span class="command-text">!hunt number album</span> where <span class="command-text">number</span> is the number of Songs a user wants to Hunt and <span class="command-text">album</span> is the name of the album a user wants to Hunt. Each Song obtained using Hunt costs 20 Pieces. Similarly, users can obtain a specified Song using the command <span class="command-text">!stalk song</span> where <span class="command-text">song</span> is the name of the Song a user wants to Stalk. Users can only obtain 1 Song for each use of Stalk. Each Song obtained using Stalk costs 350 Pieces.
+</div>
+
+<div
+class="subsection-title"
+id="Songs#Chapter_&_Vault">
+Chapter & Vault
+</div>
+
+<div
+class="content">
+When users obtain Songs, they are first stored in their Chapter, which has 13 slots that can each store 1 Song. Chapters are also used in Combat (refer to its dedicated sections below). When a user's Chapter is full, they are no longer able to obtain new Songs. Users can view their Chapter using the command <span class="command-text">!chapter</span>. Users can view a specific Song in their Chapter using the command <span class="command-text">!song slot</span> where <span class="command-text">slot</span> is the slot number of the Song the user wants to see.
+<br> <br>
+Users also have a Vault, which provides extra slots to store Songs. By default, users have 0 slots in their Vault, but can gain new slots using the command <span class="command-text">!expand</span>. Each use of <span class="command-text">!expand</span> increases the number of slots in a user's Vault by 1. The first use of <span class="command-text">!expand</span> costs 250 credits and each subsequent usage costs 250 credits more than the previous one, up to a maximum of 5000 credits. The maximum size of a user's Vault is 52 slots, so users can store a total of 65 Songs in their Chapter and Vault combined. Users can view their Vault by using the commands <span class="command-text">!chapter</span> and <span class="command-text">!vault</span>. Each page displayed by these commands shows 13 Songs each, and users can navigate to other pages using the buttons below the embed.
+<br> <br>
+Users can rearrange their Chapter and Vault by using some commands. Users can swap the position of two Songs using the command <span class="command-text">!swap slot1 slot2</span>, where <span class="command-text">slot1</span> and <span class="command-text">slot2</span> refer to the slots of the Songs that the user wants to swap. Users can also move Songs to the front of their Chapter while pushing all other Songs backwards using the command <span class="command-text">!movetofront slots</span>, where <span class="command-text">slots</span> refers to the slot numbers of the Songs the user wants to move. If only one Song is moved, only that slot number is specified e.g. <span class="command-text">!movetofront 7</span> to move the Song in slot 8. If multiple Songs are moved, their slot numbers must be joined using <span class="command-text">&</span>, e.g. <span class="command-text">!movetofront 1&4&7&13</span>,
+</div>
+
+<div
+class="subsection-title"
+id="Songs#Scrapping_&_Pieces">
+Scrapping & Pieces
+</div>
+
+<div
+class="content">
+Users can remove Songs from their Chapter or Vault using the command <span class="command-text">!scrap slot</span>, where <span class="command-text">slot</span> is the slot number of the Song the user wants to remove. This gives users Pieces in return. Scrapping a Level 1 Song returns 1 Piece, and each subsequent Level doubles the number of Pieces returned. For example, Scrapping a Level 5 Song returns 16 Pieces.
+</div>
+
+<div
+class="subsection-title"
+id="Songs#Trading">
+Trading
+</div>
+
+<div
+class="content">
+Songs and Pieces can be traded between users at a small fee of Pieces. Users can use the command <span class="command-text">!trade selling buying user</span> where <span class="command-text">selling</span> is the slot numbers of the Songs and Pieces to be traded away by the command user, <span class="command-text">buying</span> is the slot numbers of the Songs and Pieces to be obtained by the command user, and <span class="command-text">user</span> is the target user to be traded with. To trade Pieces, the number of Pieces followed by a p is used, e.g. <span class="command-text">50p</span> to trade 50 Pieces. Similarly to <span class="command-text">!movetofront</span>, trading multiple Songs, or Songs and Pieces, uses an <span class="command-text">&</span> to join them. For example, if user A wanted to give away their Songs 2, 4, 7, and 100 Pieces for user B's Songs 5, 9, 18, and 22, user A would send <span class="command-text">!trade 2&4&7&100p 5&9&18&22 @user B</span>. When a trade is initiated, the target user has 30 seconds to reply with 'Y' to confirm the trade. If there is no response, or if the target user replies with 'N', the trade is cancelled and no Songs are lost.
+<br> <br>
+When trading, both users involved in the trade must pay a fee based on the Valuation of the Songs and number of Pieces involved. A Song's Valuation is the number of Pieces it would return when Scrapped, multiplied by 2 if it has an Element and multiplied by 5 for every Star it has, if any. For example, a Level 2 Song with an Element and two Stars has a Valuation of 100 Pieces. The fee for trading is 10% of the total number of Pieces and Valuation of every Song involved in the trade. For example, a trade with Songs worth 100, 250, 300, 390, and 700 Pieces, plus 100 Pieces, has a total Valuation of 1840 Pieces, and both users must pay 184 Pieces each to trade.
+</div>
+
+</div>
+
+<button
+class="toggler"
+onclick="toggleContent(2)">
+<img
+class="toggler-image"
+id="js-toggler-2"
+src="Logos/Mobile Toggler Dark.svg">
+<div
+class="section-title"
+id="Combat_Basic_Mechanics">
+Combat - Basic Mechanics
+</div>
+</button>
+
+<hr
+class="section-title-line">
+
+<div
+class="toggle-content"
+id="js-toggle-content-2">
+
+<div
+class="content">
+Songs can be used to Fight other users or Battle pre-made Albums. Every Song has one Mainstat and two Substats chosen from a pool of seven. Users can Train these Songs to increase their Level and their Stats. Songs also have Elements, which make them deal more or less Damage based on the opposing Chapter's Element, and Stars, which increase their maximum Level. While Fighting other users is free, Battling Albums costs Pieces that increase with the Album Level. Users can get rewards from Battling such as User Score and Ephemera.
+</div>
+
+<div
+class="subsection-title"
+id="Combat_Basic_Mechanics#Stats">
+Stats
+</div>
+
+<div
+class="content">
+There are 7 Stats that Songs can have in The Dojo, namely Tenacity, Altruism, Strength, Whimsy, Intelligence, Fortitude, and Tempo. The first letter of these names spell out T. A. Swift, which stands for Taylor Alison Swift.
+<br> <br>
+All Songs have one Mainstat and two Substats selected from the 7 possible Stats. A Song can only have 1 of each Stat at maximum. All Songs with the same name will have the same Mainstat, for example, all Tim McGraws will have Tenacity as their Mainstat. However, both Substats for all Songs are randomly selected from the remaining 6 options.
+<br> <br>
+[LIST THE SONGS AND THEIR STATS HERE IDFK HOW TO DO IT]
+<br> <br>
+When fighting in The Dojo, the Stats of individual Songs are not important. Instead, Chapters are used. Chapters start with 100 Tenacity and 100 Tempo, then the Stats of all Songs in that Chapter are added to it. Chapters take Turns to deal Damage, and at the end of every Turn they heal a certain amount. The uses of the 7 Stats in these fights are as follows:
+<ol>
+    <li>Tenacity, represented by a ❤️ / :heart:, is a Chapter's health. It is reduced by incoming Damage and increased by Healing. When a Chapter's Tenacity reaches 0, they are defeated and lose the fight.</li>
+    <li>Altruism, represented by a 🤝 / :handshake:, is a Chapter's healing. Every Turn, a Chapter heals itself a random amount between 0% and 100% of its Altruism.</li>
+    <li>Strength, represented by a 💪 / :muscle:, is a Chapter's damage. When a Chapter attacks, its Strength determines the initial Damage it deals.</li>
+    <li>Whimsy, represented by a ✨ / :sparkles:, is a Chapter's critical damage percent. When a Chapter attacks, it has a chance to land a Critical Hit. If it does so, the Damage it deals is increased by its Whimsy in percent (i.e. 10 Whimsy is +10% Damage).</li>
+    <li>Intelligence, represented by a 🧠 / :brain:, is a Chapter's critical chance percent. When a Chapter attacks, its Intelligence is the percentage chance that it lands a Critical Hit (i.e. 10 Intelligence is a 10% Critical Chance).</li>
+    <li>Fortitude, represented by a ⛰️ / :mountain:, is a Chapter's defense. When a Chapter takes Damage, the Damage is reduced by its Fortitude.</li>
+    <li>Tempo, represented by a ⏱️ / :stopwatch:, is a Chapter's speed. In a fight, the Chapter with a higher Tempo attacks first. Additionally, the ratio between the Chapters' Tempos is the ratio between the number of attacks they do. For example, a Chapter with 200 Tempo will attack twice as often as a Chapter with 100 Tempo.</li>
+</ol>
+
+</div>
+
+<div
+class="subsection-title"
+id="Combat_Basic_Mechanics#Levels">
+Levels
+</div>
+
+<div
+class="content">
+When first obtained, Songs all start at Level 1. Users can increase this Level by Training them using the command <span class="command-text">!train slot</span> where <span class="command-text">slot</span> is the slot number of the Song the user wants to Train, increasing the Song's Level by 1. Training a Level 1 Song costs 1 Piece, and every subsequent Level doubles the cost. For example, Training a Level 8 Song to reach Level 9 costs 256 Pieces.
+<br> <br>
+By default, the maximum Level for a Song is Level 10. However, they have a chance to generate with Stars (refer to the Elements subsection below). Each Star increases the maximum Level for a Song by 1.
+<br> <br>
+When Songs are first Discovered, their Mainstat will be a fixed amount depending on what it is, but their Substats can be a random amount in a given range. Similarly, training a Song increases its Mainstat by a set amount and one of its substats by a random amount in a given range. This is summarised in the following table:
+<div class="pantheon-role-table" style="white-space: nowrap; overflow-x: auto;">
+<table>
+    <thead>
+        <th>Stat Name</th>
+        <th>Mainstat Value (Base + Increase)</th>
+        <th>Substat Value (Base + Increase)</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Tenacity</td>
+        <td>50 + 25</td>
+        <td>25 + 20-30 (25 avg)</td>
+    </tr>
+    <tr>
+        <td>Altruism</td>
+        <td>10 + 5</td>
+        <td>10 + 3-7 (5 avg)</td>
+    </tr>
+    <tr>
+        <td>Strength</td>
+        <td>30 + 10</td>
+        <td>15 + 8-12 (10 avg)</td>
+    </tr>
+    <tr>
+        <td>Whimsy</td>
+        <td>4 + 2</td>
+        <td>1 + 1-2 (avg 1.5*)</td>
+    </tr>
+    <tr>
+        <td>Intelligence</td>
+        <td>2 + 1</td>
+        <td>1 + 1-2 (avg 1.5*)</td>
+    </tr>
+    <tr>
+        <td>Defense</td>
+        <td>20 + 10</td>
+        <td>10 + 8-12 (avg 10)</td>
+    </tr>
+    <tr>
+        <td>Tempo</td>
+        <td>3 + 2</td>
+        <td>2 + 1-4 (avg 2.5*)</td>
+    </tr>
+    </tbody>
+</table>
+*These values are not confirmed and may be slightly off as they are experimentally measured.
+</div>
+
+</div>
+
+<div
+class="subsection-title"
+id="Combat_Basic_Mechanics#Elements">
+Elements
+</div>
+
+<div
+class="content">
+Songs can also have an Element, of which there are 8. Elements are split into 3 groups of Basic Element, Advanced Element, and Moon Element, and each has a different chance of being the Element of a Song, summarised in this table:
+<div class="pantheon-role-table" style="white-space: nowrap; overflow-x: auto;">
+<table>
+    <thead>
+        <th>Type</th>
+        <th>Element</th>
+        <th>Emoji</th>
+        <th>Percentage of Songs</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Elementless</td>
+        <td>None</td>
+        <td>None*</td>
+        <td>26%</td>
+    </tr>
+    <tr>
+        <td style="padding-right: 2rem;">Basic Element</td>
+        <td>Water</td>
+        <td>&#x1F30A; / :wave:</td>
+        <td>20%</td>
+    </tr>
+    <tr>
+        <td style="border-top-style: none !important;"></td>
+        <td>Fire</td>
+        <td>&#x1F525; / :fire:</td>
+        <td>20%</td>
+    </tr>
+    <tr>
+        <td style="border-top-style: none !important;"></td>
+        <td>Grass</td>
+        <td>&#x1F33F; / :herb:</td>
+        <td>20%</td>
+    </tr>
+    <tr>
+        <td style="padding-right: 2rem;">Advanced Element</td>
+        <td>Lightning</td>
+        <td>&#x26A1; / :zap:</td>
+        <td>4%</td>
+    </tr>
+    <tr>
+        <td style="border-top-style: none !important;"></td>
+        <td>Wind</td>
+        <td>🌪️ / :tornado:</td>
+        <td>4%</td>
+    </tr>
+    <tr>
+        <td style="border-top-style: none !important;"></td>
+        <td>Stone</td>
+        <td>&#x1FAA8; / :rock:</td>
+        <td>4%</td>
+    </tr>
+    <tr>
+        <td>Moon Element</td>
+        <td>New Moon</td>
+        <td>&#x1F311; / :new_moon:</td>
+        <td>1%</td>
+    </tr>
+    <tr>
+        <td style="border-top-style: none !important;"></td>
+        <td>Full Moon</td>
+        <td>&#x1F315; / :full_moon:</td>
+        <td>1%</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+*In this Wiki, the emoji &#x274C; / :x: is sometimes used to represent Elementless for visual consistency.
+<br> <br>
+When Chapters fight each other, they cycle through the Elements of the Songs in themselves and take on that Element. When two different Elements match up, i.e. the attacking Chapter has one Element and the other Chapter has another, the Damage dealt is either increased or decreased by a multiplier. Within each group of Elements, a closed loop of strengths and weaknesses are formed:
+<ol>
+    <li>Water is strong against Fire, Fire is strong against Grass, Grass is strong against Water, and vice versa. Basic Elements deal 150% Damage to and receive 67% Damage from the Element they are strong against.</li>
+    <li>Lightning is strong against Wind, Wind is strong against Stone, Stone is strong against Lightning, and vice versa. Advanced Elements deal 200% Damage to and recieve 50% Damage from the Element they are strong against.</li>
+    <li>New Moon and Full Moon do not form a similar loop. Instead, they both deal 300% Damage and recieve 300% Damage from each other.</li>
+</ol>
+Certain groups of Elements are strong and weak against other groups too:
+<ol>
+    <li>Elementless deal 90%/80%/70% Damage to and receive 110%/120%/130% from Basic/Advanced/Moon Elements respectively. </li>
+    <li>Basic Elements deal 110%/90%/80% Damage to and receive 90%/110%/120% Damage from Elementless/Advanced/Moon Elements respectively.</li>
+    <li>Advanced Elements deal 120%/110%/90% Damage to and receive 80%/90%/110% Damage from Elementless/Basic/Moon Elements respecitvely.</li>
+    <li>Moon Elements deal 130%/120%/110% Damage to and receive 70%/80%/90% Damage from Elementless/Basic/Advanced Elements respectively.</li>
+</ol>
+All matchups are summarised in the following table, with the number representing the Damage dealt by the Element in the top row against the Element in the first column:
+<div style="white-space: nowrap; overflow-x: auto;">
+<table id="js-element-matchup-table-1">
+    <thead>
+        <td style="border-top-style: none !important;"></td>
+        <td class="element-table-top-element" data-tippy-content="Elementless">&#x274C;</td>
+        <td class="element-table-top-element" data-tippy-content="Water">&#x1F30A;</td>
+        <td class="element-table-top-element" data-tippy-content="Fire">&#x1F525;</td>
+        <td class="element-table-top-element" data-tippy-content="Grass">&#x1F33F;</td>
+        <td class="element-table-top-element" data-tippy-content="Lightning">&#x26A1;</td>
+        <td class="element-table-top-element" data-tippy-content="Wind">🌪️</td>
+        <td class="element-table-top-element" data-tippy-content="Stone">&#x1FAA8;</td>
+        <td class="element-table-top-element" data-tippy-content="New Moon">&#x1F311;</td>
+        <td class="element-table-top-element" data-tippy-content="Full Moon">&#x1F315;</td>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Elementless">&#x274C;</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">130%</td>
+        <td class="element-table-cell element-table-slightgray">130%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Water">&#x1F30A;</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell">67%</td>
+        <td class="element-table-cell">150%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Fire">&#x1F525;</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell">150%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell">67%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Grass">&#x1F33F;</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell">67%</td>
+        <td class="element-table-cell">150%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Lightning">&#x26A1;</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell">50%</td>
+        <td class="element-table-cell">200%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Wind">🌪️</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell">200%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell">50%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Stone">&#x1FAA8;</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell">50%</td>
+        <td class="element-table-cell">200%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="New Moon">&#x1F311;</td>
+        <td class="element-table-cell element-table-slightgray">70%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell">300%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Full Moon">&#x1F315;</td>
+        <td class="element-table-cell element-table-slightgray">70%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell">300%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<div class="swap-element-table-button" id="js-swap-element-table-button-1" onclick="swapElementTable()">[Use Element names]</div>
+<br>
+Songs can also have Stars. When a Song is obtained, there is a 10% chance to add one Star to it, and this chance is repeated 6 times for a maximum of 6 Stars on one Song. For example, there is a 0.01% chance for a Song to generate with at least 4 Stars, or 1 in 10 000. Each Star of a Song increases its maximum Level by 1.
+</div>
+
+<div
+class="subsection-title"
+id="Combat_Basic_Mechanics#Fight">
+Fight
+</div>
+
+<div
+class="content">
+Fights are a round of combat between users. They are done automatically; users only need to prepare their Chapter then send the command <span class="command-text">!fight user</span> where user is the target user they want to Fight. The details of the Fight are done internally, and when it is over, a summary message of the Fight is sent.
+<br> <br>
+There is no cost to Fighting with other users, but there are also no rewards given.
+</div>
+
+<div
+class="subsection-title"
+id="Combat_Basic_Mechanics#Battle">
+Battle
+</div>
+
+<div
+class="content">
+Users can also choose to Battle pre-made Chapters generated by BowlBot instead of users. The combat mechanics are identical to that of Fight, however there are additional mechanics involving difficulty, cost, and rewards.
+<br> <br>
+Every Bot Cycle, a set number of Albums are randomly selected from Taylor Swift's 12 studio albums. The number of Albums is based on the days of the week. On Monday, there is 1 Album available, and it increases by 1 per day up to a maximum of 7 on Sundays. These can be checked using the commands <span class="command-text">!battlelog</span>, <span class="command-text">!progress</span>, <span class="command-text">!battle</span> with no parameter, and <span class="command-text">!blitz</span> with no parameter. To Battle them, users can use the command <span class="command-text">!battle album</span> where <span class="command-text">album</span> is the name of the Album they want to Battle. Albums contain between 9 and 13 Songs. Albums have a Level, and all Songs in them have that same Level. For example, a Level 4 Album could have 11 Songs at Level 4.
+<br> <br>
+When users Battle, they start by Battling Albums at Level 1. If they win that Battle, they can proceed to the next Level. There is no limit to the Level of an Album and its songs besides how far a user's Chapter can go. Battling an Album costs Pieces equal to its Level. For example, Battling a Level 17 Album costs 17 PIeces. Users can quickly Battle an Album until they lose a Battle or run out of Pieces using the command <span class="command-text">!blitz</span>. The cost of using Blitz is the same as Battling each Level individually.
+<br> <br>
+There are some rewards for Battling Albums. Every Battle won adds 1 to a user's Cleared Floors, which contribute to their User Score. Winning a Battle also has a 2% chance to immediately award the user an Ephemera if they can hold it. At Levels 7, 13, 22, and 89, this 2% chance is replaced; users are instead awarded a Pending Victory Ephemera. When users vote in a TaylorBowl, there is a 33% chance for one Pending Victory Ephemera to become a regular Ephemera. Otherwise, it is destroyed. If an Ephemera were to Spontaneously Generate for that user during that Bowl, the Pending Victory Ephemera will wait until the next Bowl to attempt to convert. Users can get at maximum 15 Pending Victory Ephemera in one Bot Cycle. Users can check their Pending Victory Ephemera using the command <span class="command-text">/wallet</span>, where it is represented with a question mark beside an Ephemera.
+<br> <br>
+Users can check the highest Level of each Album they are able to Battle using the command <span class="command-text">!battlelog</span>, or check the users who have the five highest victories against each available Album using the command <span class="command-text">!progress</span>.
+</div>
+
+</div>
+
+<button
+class="toggler"
+onclick="toggleContent(3)">
+<img
+class="toggler-image"
+id="js-toggler-3"
+src="Logos/Mobile Toggler Dark.svg">
+<div
+class="section-title"
+id="Combat_Advanced_Mechanics">
+Combat - Advanced Mechanics
+</div>
+</button>
+
+<hr
+class="section-title-line">
+
+<div
+class="toggle-content"
+id="js-toggle-content-3">
+
+<div
+class="content">
+?
+</div>
+
+<div
+class="subsection-title"
+id="Combat_Advanced_Mechanics#Elemental_Resonance">
+Elemental Resonance
+</div>
+
+<div
+class="content">
+All Songs in a Chapter also give it additional Stats or special bonuses based on their Element.
+<ol>
+    <li>Elementless Songs, when the Chapter is Elementless, grant a 40% chance to perform a Counter. The Counter deals Damage equal to 60% of the Chapter's Strength, increasing by 20% for every Elementless Song, and is unable to land Critical Hits.</li>
+    <li>Water Songs multiply a Chapter's Intelligence by 1.04 each.</li>
+    <li>Fire Songs multiply a Chapter's Strength by 1.03 each.</li>
+    <li>Grass Songs increase the minimum healing amount from a Chapter's Altruism by 5% each.</li>
+    <li>Lightning Songs multiply a Chapter's Whimsy by 1.075 each.</li>
+    <li>Wind Songs grant a Chapter one Critical Cancel each, which are consumed when the Chapter takes a Critical Hit to make it a regular hit.</li>
+    <li>Stone Songs grant a Chapter one Second Chance which revives a Chapter to 8% of its initial Tenacity when it is defeated. This percentage increases by 8% for every Stone Song.</li>
+    <li>New Moon Songs multiply a Chapter's Tempo by 1.025 each.</li>
+    <li>Full Moon Songs grant a Chapter a 2% chance to dodge incoming Damage, increasing by 2% for every Full Moon Song.</li>
+</ol>
+For Counters and Second Chances, they do not count as a Turn.
+</div>
+
+<div
+class="subsection-title"
+id="Combat_Advanced_Mechanics#Damage">
+Damage
+</div>
+
+<div
+class="content">
+Damage dealt in The Dojo is given by the formula:
+<div class="formula">
+<p><span>$$\text{Damage}=\text{Strength}_{\text{Attacker}} \cdot m_{1} \cdot m_{2} - \text{Tenacity}_{\text{Defender}}$$</span></p>
+</div>
+where \(m_{1}\) is the Elemental Multiplier (refer to the table in Combat - Basic Mechanics / Elements) and \(m_{2}\) is the Critical Damage Multiplier, given by:
+<div class="formula">
+<p><span>$$m_{2} = \text{max}\begin{cases} 1 + \cfrac{\text{Whimsy}_{\text{Attacker}}}{100} & \text{if Critical Hit} \\ 1 & \text{if not Critical Hit} \end{cases}$$</span></p>
+</div>
+
+
+</div>
+
+<div
+class="subsection-title"
+id="Combat_Advanced_Mechanics#Turns">
+Turns
+</div>
+
+<div
+class="content">
+Chapters take Turns to perform actions, and every Turn involves the following order of actions:
+<ol>
+    <li>Change Element</li>
+    <li>Attack</li>
+    <li>Heal</li>
+</ol>
+The first Chapter to have a Turn is the Chapter with the higher Tempo. If both Chapters have the same Tempo, the user who sent the command goes first. During their Turn, a Chapter first changes its Element according to the order of its Songs. On its first Turn, its Element is that of its first Song; on its second Turn, its Element is that of its second Song, etc. Chapters continue to have the Element they last changed to until the start of their next Turn. When a Chapter has cycled through all its Songs, it loops back to its first Song's Element. After attacking, the Chapter heals a random amount between 0% and 100% of its Altruism. The amount healed cannot let a Chapter's Tenacity exceed its original value.
+<br> <br>
+It is possible to identify the order in which Chapters will have their Turns based on their Tempo. Note that this may not be how it works in the code for BowlBot, but it is an accurate model based on the testing performed so far.
+<br> <br>
+Both Chapters are assigned an arbitrary number, which will be referred to as "Tempo Score", starting at 0 when the Fight or Battle begins. When it is time for a Chapter to have a Turn, attempt to add the reciprocal of their Tempos to their Tempo Score. Whichever Chapter has a lower Tempo Score will have a Turn, and that number added to their Tempo Score. The other Chapter has no changes made to their Tempo Score. This repeats for every Turn.
+<br> <br>
+For example, consider Chapter A with 100 Tempo and Chapter B with 250 Tempo, where Chapter A is the Chapter that intiated the Fight. The reciprocals of their Tempos are 0.01 and 0.004 respectively. For the first Turn in the Fight, Chapter B will have a lower resultant Tempo Score, so they perform a Turn and their Tempo Score is increased to 0.004. For the second Turn, Chapter B will still have a lower resultant Tempo Score, so they perform a Turn and their Tempo Score is increased to 0.008. For the third Turn, Chapter B would have a resultant Tempo Score of 0.012 and Chapter A would have one of 0.01, so Chapter A has their Turn. A summary of the order of Turns in this Fight, assuming no Chapter is defeated, is as such:
+<div style="white-space: nowrap; overflow-x: auto;">
+<table>
+    <thead>
+        <th>Attacking Chapter</th>
+        <th>Chapter A's Tempo Score<br>(Before &#x2192; After)</th>
+        <th>Chapter B's Tempo Score<br>(Before &#x2192; After)</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Chapter B</td>
+            <td>0 &#x2192; 0</td>
+            <td>0 &#x2192; 0.004</td>
+        </tr>
+        <tr>
+            <td>Chapter B</td>
+            <td>0 &#x2192; 0</td>
+            <td>0.004 &#x2192; 0.008</td>
+        </tr>
+        <tr>
+            <td>Chapter A</td>
+            <td>0 &#x2192; 0.1</td>
+            <td>0.008 &#x2192; 0.008</td>
+        </tr>
+        <tr>
+            <td>Chapter B</td>
+            <td>0.01 &#x2192; 0.01</td>
+            <td>0.008 &#x2192; 0.012</td>
+        </tr>
+        <tr>
+            <td>Chapter B</td>
+            <td>0.01 &#x2192; 0.01</td>
+            <td>0.012 &#x2192; 0.016</td>
+        </tr>
+        <tr>
+            <td>Chapter A*</td>
+            <td>0.01 &#x2192; 0.02</td>
+            <td>0.016 &#x2192; 0.016</td>
+        </tr>
+        <tr>
+            <td>Chapter B*</td>
+            <td>0.02 &#x2192; 0.02</td>
+            <td>0.016 &#x2192; 0.02</td>
+        </tr>
+        <tr>
+            <td>Chapter B</td>
+            <td>0.02 &#x2192; 0.02</td>
+            <td>0.02 &#x2192; 0.024</td>
+        </tr>
+        <tr>
+            <td>Chapter B</td>
+            <td>0.02 &#x2192; 0.02</td>
+            <td>0.024 &#x2192; 0.028</td>
+        </tr>
+        <tr>
+            <td>Chapter A</td>
+            <td>0.02 &#x2192; 0.03</td>
+            <td>0.028 &#x2192; 0.028</td>
+        </tr>
+        <tr>
+            <td>Chapter B</td>
+            <td>0.03 &#x2192; 0.03</td>
+            <td>0.028 &#x2192; 0.032</td>
+        </tr>
+        <tr>
+            <td>Chapter B</td>
+            <td>0.03 &#x2192; 0.03</td>
+            <td>0.032 &#x2192; 0.036</td>
+        </tr>
+        <tr>
+            <td>Chapter A*</td>
+            <td>0.03 &#x2192; 0.04</td>
+            <td>0.036 &#x2192; 0.036</td>
+        </tr>
+        <tr>
+            <td>Chapter B</td>
+            <td>0.04 &#x2192; 0.04</td>
+            <td>0.036 &#x2192; 0.04</td>
+        </tr>
+        <tr>
+            <td>Chapter B</td>
+            <td>0.04 &#x2192; 0.04</td>
+            <td>0.04 &#x2192; 0.044</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+*Since the resultant Tempo Scores would be tied, Chapter A takes priority as it initiated the Fight.
+<br> <br>
+As can be seen, the ratio of number of Turns that Chapter A does to the number of Turns that Chapter B does is also the ratio between their Tempos, \(2:5\).
+</div>
+
+<div
+class="subsection-title"
+id="Combat_Advanced_Mechanics#Notation">
+Notation
+</div>
+
+<div
+class="content">
+The embed sent when Fighting or Battling contains lines of emojis that explain what happened during the combat. Understanding what each emoji means can help users change their Chapters to be better in combat. Each row is one Turn, and contains one string of emojis. All the notation used and their meanings are summarised in the following table:
+<div style="overflow-x: auto;">
+<table>
+    <thead>
+        <th>Notation</th>
+        <th>Meaning</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>&#x1F7E5; and &#x1F7E6;</td>
+            <td>Which Chapter is attacking during that Turn. Blue is the Chapter that initiated the combat.</td>
+        </tr>
+        <tr>
+            <td style="white-space: nowrap;"><span class="command-text">?</span>[XXX&#x1F5E1;]&#x2192;[YYY❤️]<span class="command-text">?</span></td>
+            <td>The <span class="command-text">?</span> are the Elements of the attacking and defending Chapters, with the one on the left being the attacking Chapter. XXX is the amount of Damage dealt by the attacking Chapter and YYY is the amount of Tenacity the defending Chapter has left after taking Damage.</td>
+        </tr>
+        <tr>
+            <td>[XXX&#x1F495;&#x2192;YYY❤️]</td>
+            <td>XXX is the amount of healing the attacking Chapter recieves that Turn and YYY is the Tenacity the attacking Chapter has after healing. If does not appear, no healing is done.</td>
+        </tr>
+        <tr>
+            <td>&#x1F3AF;</td>
+            <td>Indicates that the attacking Chapter landed a Critical Hit. If does not appear, no Critical Hit was landed.</td>
+        </tr>
+        <tr>
+            <td>:arrow_up:</td>
+            <td>Indicates that the attacking Chapter's Element was strong or weak against the defending Chapter's. Up indicates strong, down indicates weak. If does not appear, the Element is neutral.</td>
+        </tr>
+        <tr>
+            <td>:darts: and then X</td>
+            <td>Indicates that the attacking Chapter's Critical Hit was negated by the defending Chapter's Critical Cancel.</td>
+        </tr>
+        <tr>
+            <td>revive thing</td>
+            <td>Indicates that the Chapter was defeated and used its Second Chance and is now at XXX Tenacity. Although this is preceded by a Turn indicator, it does not count as a Turn.</td>
+        </tr>
+        <tr>
+            <td>running</td>
+            <td>Indicates that the defending Chapter dodged an incoming attack.</td>
+        </tr>
+    </tbody>
+</table>
+[INSERT EXAMPLE OF ONE STRING OF EMOJIS]
+</div>
+</div>
+
+</div>
+
+<button
+class="toggler"
+onclick="toggleContent(4)">
+<img
+class="toggler-image"
+id="js-toggler-4"
+src="Logos/Mobile Toggler Dark.svg">
+<div
+class="section-title"
+id="Glossary">
+Glossary
+</div>
+</button>
+
+<hr
+class="section-title-line">
+
+<div
+class="toggle-content"
+id="js-toggle-content-4">
+
+<div
+class="subsection-title"
+id="Glossary#List_of_Commands">
+List of Commands
+</div>
+
+<table>
+    <thead>
+        <th>Command</th>
+        <th>Description</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td><span class="command-text">!battle album</span></td>
+        <td>Initiates a Battle with an Album. <br> <span class="command-text">album</span> is a mandatory parameter that refers to the Album to Battle.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!battlelog user</span></td>
+        <td>Displays the highest Level for each available Album that a user can Battle. <br> <span class="command-text">user</span> is an optional parameter; defaults to command user.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!blitz album</span></td>
+        <td>Initiates Battles with an Album until a loss or lack of Pieces. <br> <span class="command-text">album</span> is a mandatory parameter that refers to the Album to Battle.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!chapter user</span></td>
+        <td>Displays a user's Chapter. <br> <span class="command-text">user</span> is an optional parameter; defaults to command user.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!discover number</span></td>
+        <td>Discovers Songs to add to a user's collection. <br> <span class="command-text">number</span> is an optional parameter that refers to the number of uses; defaults to 1.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!expand</span></td>
+        <td>Increases number of slots in a user's Vault by 1.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!fight user</span></td>
+        <td>Initiates a Fight with another user. <br> <span class="command-text">user</span> is a mandatory parameter that refers to the user to Fight.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!hunt number album</span></td>
+        <td>Hunts Songs from a specific album to add to a user's collection. <br> <span class="command-text">number</span> is a mandatory parameter that refers to the number of uses. <br> <span class="command-text">album</span> is a mandatory parameter that refers to the album to obtain Songs from.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!movetofront slots</span></td>
+        <td>Moves Songs to the front of a user's collection. <br> <span class="command-text">slots</span> is a mandatory parameter that refers to the Song(s) to be moved to the front; multiple Songs must be joined using <span class="command-text">&</span>.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!progress</span></td>
+        <td>Displays the users who have the five highest victories against each available Album.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!scrap slots</span></td>
+        <td>Scraps Songs in a user's collection. <br> <span class="command-text">slots</span> is a mandatory parameter that refers to the slot numbers of the Songs to be scrapped; multiple Songs must be joined using <span class="command-text">&</span>.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!song slot user</span></td>
+        <td>Displays a Song in a user's collection. <br> <span class="command-text">slot</span> is a mandatory parameter that refers to the slot number of the Song to be displayed. <br> <span class="command-text">user</span> is an optional parameter; defaults to command user.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!stalk song</span></td>
+        <td>Stalks a specific Song to add to a user's collection. <br> <span class="command-text">song</span> is a mandatory parameter that refers to the Song to be obtained.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!swap slot1 slot2</span></td>
+        <td>Swaps two Songs in a user's collection.<br> <span class="command-text">slot1</span> and <span class="command-text">slot2</span> are mandatory parameters that refers to the slot numbers of the Songs to be swapped.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!trade selling buying user</span></td>
+        <td>Trades Songs and/or Pieces for Songs and/or Pieces with another user. <br> <span class="command-text">selling</span> and <span class="command-text">buying</span> are mandatory parameters that refer to the Songs and/or Pieces to be given away and received respectively; Pieces must be indicated with a <span class="command-text">p</span>; multiple Songs and/or Pieces must be joined by <span class="command-text">&</span> <br> <span class="command-text">user</span> is a mandatory parameter that refers to the user to be traded with.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!train slot</span></td>
+        <td>Trains a Song. <br> <span class="command-text">slot</span> is a mandatory parameter that refers to the slot number of the Song to be Trained.</td>
+    </tr>
+    <tr>
+        <td><span class="command-text">!vault user</span></td>
+        <td>Displays the first page of a user's Vault. <br> <span class="command-text">user</span> is an optional parameter; defaults to command user.</td>
+    </tr>
+    </tbody>
+</table>
+
+<div
+class="subsection-title"
+id="Glossary#List_of_Formulae">
+List of Formulae
+</div>
+
+<div
+class="content">
+<b>1.1</b> &ensp; Damage dealt:
+<div class="formula">
+<p><span>$$\text{Damage}=\text{Strength}_{\text{Attacker}} \cdot m_{1} \cdot m_{2} - \text{Tenacity}_{\text{Defender}}$$</span></p>
+</div>
+where \(m_{1}\) is the Elemental Multiplier and \(m_{2}\) is the Critical Damage Multiplier.
+<br> <br>
+<b>1.2</b> &ensp; Table of Elemental Multiplier, \(m_{1}\):
+<div style="white-space: nowrap; overflow-x: auto;">
+<table id="js-element-matchup-table-2">
+    <thead>
+        <td style="border-top-style: none !important;"></td>
+        <td class="element-table-top-element" data-tippy-content="Elementless">&#x274C;</td>
+        <td class="element-table-top-element" data-tippy-content="Water">&#x1F30A;</td>
+        <td class="element-table-top-element" data-tippy-content="Fire">&#x1F525;</td>
+        <td class="element-table-top-element" data-tippy-content="Grass">&#x1F33F;</td>
+        <td class="element-table-top-element" data-tippy-content="Lightning">&#x26A1;</td>
+        <td class="element-table-top-element" data-tippy-content="Wind">🌪️</td>
+        <td class="element-table-top-element" data-tippy-content="Stone">&#x1FAA8;</td>
+        <td class="element-table-top-element" data-tippy-content="New Moon">&#x1F311;</td>
+        <td class="element-table-top-element" data-tippy-content="Full Moon">&#x1F315;</td>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Elementless">&#x274C;</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">130%</td>
+        <td class="element-table-cell element-table-slightgray">130%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Water">&#x1F30A;</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell">67%</td>
+        <td class="element-table-cell">150%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Fire">&#x1F525;</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell">150%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell">67%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Grass">&#x1F33F;</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell">67%</td>
+        <td class="element-table-cell">150%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+        <td class="element-table-cell element-table-slightgray">120%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Lightning">&#x26A1;</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell">50%</td>
+        <td class="element-table-cell">200%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Wind">🌪️</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell">200%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell">50%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Stone">&#x1FAA8;</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell">50%</td>
+        <td class="element-table-cell">200%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+        <td class="element-table-cell element-table-slightgray">110%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="New Moon">&#x1F311;</td>
+        <td class="element-table-cell element-table-slightgray">70%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+        <td class="element-table-cell">300%</td>
+    </tr>
+    <tr>
+        <td class="element-table-side-element" data-tippy-content="Full Moon">&#x1F315;</td>
+        <td class="element-table-cell element-table-slightgray">70%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">80%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell element-table-slightgray">90%</td>
+        <td class="element-table-cell">300%</td>
+        <td class="element-table-cell element-table-gray">100%</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<div class="swap-element-table-button" id="js-swap-element-table-button-2" onclick="swapElementTable()">[Use Element names]</div>
+<br>
+<b>1.3</b> &ensp; Critical Damage Multiplier, \(m_{2}\):
+<div class="formula">
+<p><span>$$m_{2} = \text{max}\begin{cases} 1 + \cfrac{\text{Whimsy}_{\text{Attacker}}}{100} & \text{if Critical Hit} \\ 1 & \text{if not Critical Hit} \end{cases}$$</span></p>
+</div>
+
+<div
+class="subsection-title"
+id="Glossary#List_of_Terms">
+List of Terms
+</div>
+
+<table>
+    <thead>
+        <th>Term</th>
+        <th>Definition</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Collection</td>
+        <td>A user's Chapter and Vault combined; the location of their stored Songs.</td>
+    </tr>
+    <tr>
+        <td>Counter</td>
+        <td>A weaker attack by a Chapter when taking Damage that does not count as a Turn.</td>
+    </tr>
+    <tr>
+        <td>Pending Victory Ephemera</td>
+        <td>A currency that has a 33% chance of converting into Ephemera, once per Bowl voted in.</td>
+    </tr>
+    <tr>
+        <td>Scrap</td>
+        <td>To destroy a Song in return for Pieces.</td>
+    </tr>
+    <tr>
+        <td>Second Chance</td>
+        <td>An effect that allows a Chapter to regain Tenacity upon being defeated.</td>
+    </tr>
+    <tr>
+        <td>Tempo Score</td>
+        <td>A mathematical model for the order in which two Chapters have Turns.</td>
+    </tr>
+    </tbody>
+</table>
+
+</div>
+
+</div>
+
+<div
+class="version-text">
+Updated for BowlBot Version 17.2.6
+</div>
+
+</body>
+
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="Code.js"></script>
+<script src="theDojo.js"></script>
+
+</html>
