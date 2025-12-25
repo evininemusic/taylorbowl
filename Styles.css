@@ -260,43 +260,6 @@ button:hover {
     color: var(--subtext-color);
 }
 
-.page-cover-kofi {
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100vw;
-    height: 100vh;
-    z-index: 998;
-    position: fixed;
-    display: none;
-    top: 0;
-    left: 0;
-}
-.kofi {
-    background-color: var(--visual-color);
-    width: 50%;
-    max-width: 360px;
-    height: fit-content;
-    display: none;
-    z-index: 999;
-    padding: 0.5rem 0.8rem 0.5rem;
-    position: fixed;
-    margin: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 1rem 1.3rem var(--visual-color);
-}
-.kofi-text {
-    color: var(--text-color);
-    text-align: justify;
-    display: inherit;
-}
-.escape-text {
-    margin-top: 0.22rem;
-    text-align: left;
-    font-size: 0.8rem;
-    color: var(--subtext-color);
-}
-
 .menu {
     background-color: var(--bg-color);
     width: fit-content;
@@ -476,6 +439,37 @@ ol {
     margin-right: 2rem;
 }
 
+.element-table-top-element {
+    border-left-style: solid;
+    border-top-style: none !important;
+    text-align: center;
+    width: 10%;
+}
+.element-table-side-element {
+    width: 2rem;
+    height: 1.7rem;
+    text-align: center;
+    height: 10%;
+}
+.element-table-cell {
+    text-align: center;
+    border-left-style: solid;
+}
+.element-table-gray {
+    opacity: 0.6;
+}
+.element-table-slightgray {
+    opacity: 0.8;
+}
+.swap-element-table-button {
+    color: var(--link-color);
+    margin-top: 0.7rem;
+}
+.swap-element-table-button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .visual {
     width: 24rem;
     display: block;
@@ -567,5 +561,3 @@ ol {
 .tippy-box .tippy-arrow::before {
     color: var(--visual-color);
 }
-
-
