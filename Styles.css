@@ -473,6 +473,12 @@ ol {
 .sort-table-header:hover {
     cursor: pointer;
 }
+.track-record-elo {
+    text-align: center;
+}
+.track-record-elo:hover {
+    cursor: pointer;
+}
 
 .visual {
     width: 24rem;
