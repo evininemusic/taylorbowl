@@ -223,7 +223,7 @@ button:hover {
     left: 0;
 }
 
-.page-cover-advertisement {
+.page-cover-kofi {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
     height: 100vh;
@@ -233,7 +233,7 @@ button:hover {
     top: 0;
     left: 0;
 }
-.advertisement {
+.kofi {
     background-color: var(--visual-color);
     width: 50%;
     max-width: 360px;
@@ -248,7 +248,7 @@ button:hover {
     transform: translate(-50%, -50%);
     box-shadow: 0 0 1rem 1.3rem var(--visual-color);
 }
-.advertisement-text {
+.kofi-text {
     color: var(--text-color);
     text-align: justify;
     display: inherit;
@@ -561,3 +561,4 @@ ol {
 .tippy-box .tippy-arrow::before {
     color: var(--visual-color);
 }
+
