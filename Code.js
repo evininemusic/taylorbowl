@@ -252,31 +252,6 @@ tippy("[data-tippy-content]", {
     arrow: true,
 });
 
-// For the Kofi advertisement.
-window.onload = function() {
-    let newSession = sessionStorage.getItem("status")
-    if (newSession != "true") {
-        setTimeout(openAdvertisement, 1500)
-        this.sessionStorage.setItem("status", "true")
-    }
-}
-
-function openAdvertisement() {
-    document.getElementById("js-page-cover-advertisement").style.display = "block";
-    document.getElementById("js-advertisement").style.display = "block";
-    document.body.addEventListener('keydown', function(e) {
-        console.log('key was downed')
-        if (e.key == "Escape") {
-            if (document.getElementById("js-page-cover-advertisement").style.display == "block") {
-                closeAdvertisement();
-            }}})
-}
-
-function closeAdvertisement() {
-    document.getElementById("js-page-cover-advertisement").style.display = "none";
-    document.getElementById("js-advertisement").style.display = "none";
-}
-
 // For Kofi.
 window.onload = function() {
     let newSession = sessionStorage.getItem("status")
@@ -300,3 +275,4 @@ function closeKofi() {
     document.getElementById("js-page-cover-kofi").style.display = "none";
     document.getElementById("js-kofi").style.display = "none";
 }
+
