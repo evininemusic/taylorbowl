@@ -1,28 +1,40 @@
 "use strict";
 
+// Obtains all instances of elements of certain classes
+// page is the element that contains the button that links to other wiki pages
 const page = document.querySelectorAll(".page");
+// pageTitle is an element in page that is the title of the page
 const pageTitle = document.querySelectorAll(".page-title");
+// pageDescription is an element in page that is a short description of the page
 const pageDescription = document.querySelectorAll(".page-description");
 
+// Used when a user is redirected from a wiki page to the search page
+// Obtains the 'search' parameter from the url
 let params = new URLSearchParams(document.location.search);
 let searchParameter = params.get("search");
+// Enters the 'search' parameter into the search bar
 document.getElementById('js-search').value = searchParameter;
+// Runs the match() function
 match();
 
+// Function that filters pages based on the search bar
 function match() {
+    // Obtains the value of the search bar
     const matchParameter = document.getElementById('js-search').value;
-    console.log(pageTitle.length);
+    // Obtains the number of page elements and iterates through each of them
     for (let i = 0; i < pageTitle.length; i++) {
-        console.log(i);
+        // Obtains the title and description of each page, replacing all brackets and spaces for easier matching
         const matchTitle = pageTitle[i].innerHTML.replace(/[() ]/g,'').toUpperCase();
         const matchDescription = pageDescription[i].innerHTML.replace(/[() ]/g,'').toUpperCase();
         if (
+            // Matches the search bar to both the title and description of each page
             matchTitle.indexOf(matchParameter.toUpperCase()) > -1 ||
             matchDescription.indexOf(matchParameter.toUpperCase()) > -1) {
+                // If there is a match, sets that page element display to blank, making it visible
                 page[i].style.display = "";
-                console.log("returned " + i);
         }
         else {
+            // If there is no match, sets that page element display to none to filter it out
             page[i].style.display = "none";
         }
     }
@@ -142,3 +154,4 @@ tippy("[data-tippy-content]", {
     animation: 'fade',
     arrow: true,
 });
+
