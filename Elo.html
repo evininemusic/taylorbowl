@@ -453,8 +453,8 @@ where the K Value, \(K\), is given by:
     <p><span>
         $$K=\begin{cases}
         3m\max(A,B) & \text{when}\,\max(A,B)<7 \\
-        45m\log_{10}(|A-B|-4) & \mathrm{when}\,|A-B|>7 \\
-        25m & \text{otherwise}
+        75m\log_{10}(|A-B|-2.36) & \text{when}\,|A-B|>7 \\
+        50m & \text{otherwise}
         \end{cases}$$
     </span></p>
 </div>
@@ -594,8 +594,8 @@ where \(R_{A}\) and \(R_{B}\) are the Elo ratings of track A and B respectively.
     <p><span>
         $$K=\begin{cases}
         3m\max(A,B) & \mathrm{when}\,\max(A,B)<7 \\
-        45m\log_{10}(|A-B|-4) & \mathrm{when}\,|A-B|>7 \\
-        25m & \mathrm{otherwise}
+        75m\log_{10}(|A-B|-2.36) & \mathrm{when}\,|A-B|>7 \\
+        50m & \mathrm{otherwise}
         \end{cases}$$
     </span></p>
 </div>
@@ -655,7 +655,7 @@ List of Terms
 
 <div
 class="version-text">
-Updated for BowlBot Version 17.2.0
+Updated for BowlBot Version 18.0.0
 </div>
 
 </body>
@@ -666,5 +666,3 @@ Updated for BowlBot Version 17.2.0
 <script src="Code.js"></script>
 
 </html>
-
-

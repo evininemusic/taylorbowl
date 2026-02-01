@@ -342,7 +342,7 @@ id="js-toggle-content-2">
 
 <div
 class="content">
-An Ephemera Level is required to hold Ephemera. Each Ephemera Level allows the user to hold two Ephemera. Users start with an Ephemera Level of 0 and is increased using the command <span class="command-text">!exceed</span>, which consumes credits. The price starts as 0.2% of active credits, or all credits owned by active users, and increases by an additional 0.2% for every Level higher. Ephemera Level has a limit of 20, so users can only hold up to a maximum of 40 Ephemera at one time, and have a maximum Spontaneous Ephemera chance from Ephemera Levels of 10%.
+An Ephemera Level is required to hold Ephemera. Each Ephemera Level allows the user to hold two Ephemera. Users start with an Ephemera Level of 0 and is increased using the command <span class="command-text">!exceed</span>, which consumes credits. The price starts as 0.2% of active credits, or all credits owned by active users, and increases by an additional 0.2% for every Level higher. This command can only be used once per <a class="text-actionable-link" href="https://taylorbowl.wiki/Bot_Cycle" data-tippy-content="A Bot Cycle is a period between two Bot Restarts.">Bot Cycle</a>. Ephemera Level has a limit of 20, so users can only hold up to a maximum of 40 Ephemera at one time, and have a maximum Spontaneous Ephemera chance from Ephemera Levels of 10%.
 <br> <br>
 Each additional Ephemera Level also gives a user 40 more <a class="text-actionable-link" href="https://taylorbowl.wiki/Risk_&_Anti-Risk" data-tippy-content="Risk is a die-based minigame that uses credits.">Risk</a> and <a class="text-actionable-link" href="https://taylorbowl.wiki/Risk_&_Anti-Risk" data-tippy-content="Anti-Risk is a die-based minigame that uses credits.">Anti-Risk</a> rolls, and 150 more Paid <a class="text-actionable-link" href="https://taylorbowl.wiki/Yahtzee" data-tippy-content="Yahtzee is a dice-based minigame that uses credits.">Yahtzee</a> rolls.
 </div>
@@ -663,28 +663,28 @@ where \(t\) is the number of Bowls you can vote in consecutively and \(N\) is th
 <br> <br>
 The summation function cannot be simplified to solve for \(N\). Instead, we can approximate Expected Ephemera using differential equations. The average rate of change of Ephemera is given the sum of Spontaneous Generation and Disintegration:
 <div class="formula">
-<p><span>$$\cfrac{\text{d}n}{\text{d}t} = 0.005EL - 0.0075n$$</span></p>
+<p><span>$$\cfrac{\text{d}n}{\text{d}t} = 0.005\text{EL} - 0.0075n$$</span></p>
 </div>
-where \(n\) is the number of on-hand Ephemera, \(t\) is the number of Bowls, and \(EL\) is the Ephemera Level.
+where \(n\) is the number of on-hand Ephemera, \(t\) is the number of Bowls, and \(\text{EL}\) is the Ephemera Level.
 <br> <br>
 Solving this seperable variable differential equation:
 <div class="formula">
-<p><span>$$\int\cfrac{1}{0.005EL-0.0075n}\text{d}n=\int \text{d}t \\
--\cfrac{\ln(0.005EL-0.0075n)}{0.0075}=t+C_{1} \\
-0.005EL-0.0075n = e^{-0.0075(t+C_{1})} \\
-\cfrac{2}{3}EL-n = C_{2}e^{-0.0075t} \\
-n=\cfrac{2}{3}EL-C_{2}e^{-0.0075t}$$</span></p>
+<p><span>$$\int\cfrac{1}{0.005\text{EL}-0.0075n}\text{d}n=\int \text{d}t \\
+-\cfrac{\ln(0.005\text{EL}-0.0075n)}{0.0075}=t+C_{1} \\
+0.005\text{EL}-0.0075n = e^{-0.0075(t+C_{1})} \\
+\cfrac{2}{3}\text{EL}-n = C_{2}e^{-0.0075t} \\
+n=\cfrac{2}{3}\text{EL}-C_{2}e^{-0.0075t}$$</span></p>
 </div>
 Let \(f(t)=n\) to express the number of on-hand Ephemera as a function of the number of Bowls. Then, \(f(0)=N_{0}\) where \(N_{0}\) is the starting number of Ephemera such that we have an initial condition to solve for the constant. Thus, substituting \(t=0\):
 <div class="formula">
-<p><span>$$N_{0}=\cfrac{2}{3}EL-C_{2}e^{0} \\
-C_{2}=\cfrac{2}{3}EL-N_{0}$$</span></p>
+<p><span>$$N_{0}=\cfrac{2}{3}\text{EL}-C_{2}e^{0} \\
+C_{2}=\cfrac{2}{3}\text{EL}-N_{0}$$</span></p>
 </div>
 Therefore, the number of on-hand Ephemera as a function of the number of Bowls is approximated by the formula:
 <div class="formula">
-<p><span>$$f(t)=\cfrac{2}{3}EL-\left(\cfrac{2}{3}EL-N_{0}\right)e^{-0.0075t}$$</span></p>
+<p><span>$$f(t)=\cfrac{2}{3}\text{EL}-\left(\cfrac{2}{3}\text{EL}-N_{0}\right)e^{-0.0075t}$$</span></p>
 </div>
-where \(f(t)\) is the number of on-hand Ephemera expressed as a function of the number of Bowls, \(t\) is the number of Bowls, \(EL\) is the Ephemera Level, and \(N_{0}\) is the initial number of on-hand Ephemera.
+where \(f(t)\) is the number of on-hand Ephemera expressed as a function of the number of Bowls, \(t\) is the number of Bowls, \(\text{EL}\) is the Ephemera Level, and \(N_{0}\) is the initial number of on-hand Ephemera.
 <br> <br>
 The reason this is an approximation is because the change in Ephemera occurs in discrete values and not smoothly like is required for differential equations. This means that the effects of Disintegration are slightly overestimated because of fractional values of Ephemera. However, based on graphical comparison, this is still a good estimate and is reliable enough for practical use where the randomness of Ephemera is more significant.
 <br> <br>
@@ -892,7 +892,7 @@ List of Terms
 
 <div
 class="version-text">
-Updated for BowlBot Version 17.2.6
+Updated for BowlBot Version 18.0.0
 </div>
 
 </body>
@@ -903,4 +903,3 @@ Updated for BowlBot Version 17.2.6
 <script src="Code.js"></script>
 
 </html>
-

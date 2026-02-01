@@ -423,7 +423,7 @@ id="Low_Cost#Puppeteer">
 class="content">
 Puppeteer is used to make a Puppet vote in a Bowl. Puppets refer to two specific Bots known as 'mother' and 'father'. The command <span class="command-text">!puppeteer choice user</span> consumes 1 Ephemera to make one of the Puppets vote for the specified choice. The names 'mother' and 'father' are used in the user parameter. Example: <span class="command-text">!puppeteer b mother</span>
 <br> <br>
-Puppeteer will misfire if the specified puppet has already voted in the current Bowl.
+Puppeteer will misfire if the specified puppet has already voted in the current Bowl. Puppeteer will misfire if the difference in votes between the tracks in the Bowl is greater than 2.
 </div>
 
 <div
@@ -516,7 +516,7 @@ Kickstart is used to increase a user's <a class="text-actionable-link" href="htt
 <div class="formula">
 <p><span>$$\text{Increase}=\text{max}\begin{cases} 0.08\cdot\text{Invoker's Streak Record} \\ 0.08\cdot\text{Target's Streak Record} \\ 20 \end{cases}$$</span></p>
 </div>
-Kickstart will misfire if used when either the target or invoker has a Streak Record of 12 or less. Kickstart will misfire if its success would increase the target's current Streak past 92% of their Streak Record.
+Kickstart will misfire if used when either the target or invoker has a Streak Record of 12 or less. Kickstart will misfire if its success would increase the target's current Streak past 92% of their Streak Record. Kickstart will misfire if used on the same target more than once during a TaylorBowl.
 <br> <br>
 You may use the <a class="text-actionable-link" href="https://taylorbowl.wiki/Bots#EsteBot" data-tippy-content="EsteBot is a supporting bot for TaylorBowl developed to help users.">EsteBot</a> command <span class="command-text">/kickstart</span> to determine your Streak increase from Kickstart based on your Streak Record.
 </div>
@@ -1032,7 +1032,7 @@ List of Terms
 
 <div
 class="version-text">
-Updated for BowlBot Version 17.2.7
+Updated for BowlBot Version 18.0.0
 </div>
 
 </body>
@@ -1043,5 +1043,3 @@ Updated for BowlBot Version 17.2.7
 <script src="Code.js"></script>
 
 </html>
-
-

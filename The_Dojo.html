@@ -207,6 +207,9 @@ class="contents-list">
         &emsp; &ensp; 3.3 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Combat_Advanced_Mechanics#Turns"> Turns <br> </a>
     </div>
     <div>
+        &emsp; &ensp; 3.4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Combat_Advanced_Mechanics#Notation"> Notation <br> </a>
+    </div>
+    <div>
         4 &emsp; <a class="text-actionable-link" href="https://taylorbowl.wiki/The_Dojo#Glossary"> Glossary <br> </a>
     </div>
     <div>
@@ -301,6 +304,8 @@ Scrapping & Pieces
 <div
 class="content">
 Users can remove Songs from their Chapter or Vault using the command <span class="command-text">!scrap slot</span>, where <span class="command-text">slot</span> is the slot number of the Song the user wants to remove. This gives users Pieces in return. Scrapping a Level 1 Song returns 1 Piece, and each subsequent Level doubles the number of Pieces returned. For example, Scrapping a Level 5 Song returns 16 Pieces.
+<br> <br>
+Pieces are subject to taxes, similar to credits. Like the Wealth Tax and Inactivity Decay for credits, it is applied every 25 bowls. The tax is 1% of a user's total Pieces, rounded down. This means users with less than 100 Pieces are not subject to this tax.
 </div>
 
 <div
@@ -355,6 +360,8 @@ class="content">
 There are 7 Stats that Songs can have in The Dojo, namely Tenacity, Altruism, Strength, Whimsy, Intelligence, Fortitude, and Tempo. The first letter of these names spell out T. A. Swift, which stands for Taylor Alison Swift.
 <br> <br>
 All Songs have one Mainstat and two Substats selected from the 7 possible Stats. A Song can only have 1 of each Stat at maximum. All Songs with the same name will have the same Mainstat, for example, all Tim McGraws will have Tenacity as their Mainstat. However, both Substats for all Songs are randomly selected from the remaining 6 options.
+<br> <br>
+[LIST THE SONGS AND THEIR STATS HERE IDFK HOW TO DO IT]
 <br> <br>
 When fighting in The Dojo, the Stats of individual Songs are not important. Instead, Chapters are used. Chapters start with 100 Tenacity and 100 Tempo, then the Stats of all Songs in that Chapter are added to it. Chapters take Turns to deal Damage, and at the end of every Turn they heal a certain amount. The uses of the 7 Stats in these fights are as follows:
 <ol>
@@ -427,8 +434,8 @@ When Songs are first Discovered, their Mainstat will be a fixed amount depending
     </tr>
     </tbody>
 </table>
-</div>
 *These values are not confirmed and may be slightly off as they are experimentally measured.
+</div>
 
 </div>
 
@@ -711,7 +718,7 @@ id="js-toggle-content-3">
 
 <div
 class="content">
-The Dojo has many complicated or lengthy combat mechanics, all of which are detailed here. For a user new to The Dojo, it is advised to understand the basic combat mechanics and before proceeding.
+?
 </div>
 
 <div
@@ -867,6 +874,60 @@ For example, consider Chapter A with 100 Tempo and Chapter B with 250 Tempo, whe
 *Since the resultant Tempo Scores would be tied, Chapter A takes priority as it initiated the Fight.
 <br> <br>
 As can be seen, the ratio of number of Turns that Chapter A does to the number of Turns that Chapter B does is also the ratio between their Tempos, \(2:5\).
+</div>
+
+<div
+class="subsection-title"
+id="Combat_Advanced_Mechanics#Notation">
+Notation
+</div>
+
+<div
+class="content">
+The embed sent when Fighting or Battling contains lines of emojis that explain what happened during the combat. Understanding what each emoji means can help users change their Chapters to be better in combat. Each row is one Turn, and contains one string of emojis. All the notation used and their meanings are summarised in the following table:
+<div style="overflow-x: auto;">
+<table>
+    <thead>
+        <th>Notation</th>
+        <th>Meaning</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>&#x1F7E5; and &#x1F7E6;</td>
+            <td>Which Chapter is attacking during that Turn. Blue is the Chapter that initiated the combat.</td>
+        </tr>
+        <tr>
+            <td style="white-space: nowrap;"><span class="command-text">?</span>[XXX&#x1F5E1;]&#x2192;[YYY❤️]<span class="command-text">?</span></td>
+            <td>The <span class="command-text">?</span> are the Elements of the attacking and defending Chapters, with the one on the left being the attacking Chapter. XXX is the amount of Damage dealt by the attacking Chapter and YYY is the amount of Tenacity the defending Chapter has left after taking Damage.</td>
+        </tr>
+        <tr>
+            <td>[XXX&#x1F495;&#x2192;YYY❤️]</td>
+            <td>XXX is the amount of healing the attacking Chapter recieves that Turn and YYY is the Tenacity the attacking Chapter has after healing. If does not appear, no healing is done.</td>
+        </tr>
+        <tr>
+            <td>&#x1F3AF;</td>
+            <td>Indicates that the attacking Chapter landed a Critical Hit. If does not appear, no Critical Hit was landed.</td>
+        </tr>
+        <tr>
+            <td>:arrow_up:</td>
+            <td>Indicates that the attacking Chapter's Element was strong or weak against the defending Chapter's. Up indicates strong, down indicates weak. If does not appear, the Element is neutral.</td>
+        </tr>
+        <tr>
+            <td>:darts: and then X</td>
+            <td>Indicates that the attacking Chapter's Critical Hit was negated by the defending Chapter's Critical Cancel.</td>
+        </tr>
+        <tr>
+            <td>revive thing</td>
+            <td>Indicates that the Chapter was defeated and used its Second Chance and is now at XXX Tenacity. Although this is preceded by a Turn indicator, it does not count as a Turn.</td>
+        </tr>
+        <tr>
+            <td>running</td>
+            <td>Indicates that the defending Chapter dodged an incoming attack.</td>
+        </tr>
+    </tbody>
+</table>
+[INSERT EXAMPLE OF ONE STRING OF EMOJIS]
+</div>
 </div>
 
 </div>
@@ -1168,7 +1229,7 @@ List of Terms
 
 <div
 class="version-text">
-Updated for BowlBot Version 17.2.6
+Updated for BowlBot Version 18.0.0
 </div>
 
 </body>
@@ -1179,7 +1240,4 @@ Updated for BowlBot Version 17.2.6
 <script src="Code.js"></script>
 <script src="theDojo.js"></script>
 
-
 </html>
-
-
