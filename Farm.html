@@ -726,7 +726,7 @@ For some Farmers, it is helpful to know how many new Active Farmers can join the
 1.0075^{\Delta n} < \cfrac{1}{P_{T}} \\ 
 \ln(1.0075^{\Delta n}) < \ln \cfrac{1}{P_{T}} \\ 
 \Delta n \ln 1.0075 < -\ln P_{T} \\ 
-\Delta n < -\cfrac{\ln P_{T}}{\ln 1.0075}
+\Delta n < -\cfrac{\ln P_{T}}{\ln 1.0075}, \; \Delta n \in \mathbb{N}_{0}
 $$</span></p>
 </div>
 where \(\Delta n\) is the number of new Active Farmers that can join the Farm and \(P_{T}\) is the Current Threshold Percentage.
@@ -849,13 +849,14 @@ class="content">
 <b>1</b> &ensp; Minimum amount a user can plant:
 <div
 class="formula">
-<p><span>$$\mathrm{Minimum}=\mathrm{min}\begin{cases}(\mathrm{Total\,credits}\cdot0.025) & \\ 1\div\mathrm{Growth\,rate} & \\ 1 & \end{cases}$$</span></p>
+<p><span>$$\mathrm{Minimum}=\mathrm{min}\begin{cases}\mathrm{Total\,credits}\cdot0.025 & \\ 1\div\mathrm{Growth\,rate} & \\ 1 & \end{cases}$$</span></p>
 </div>
 <b>2</b> &ensp; Equivalent number of Active Farmers:
 <div class="formula">
 <p><span>$$n=n_{a}+0.3n_{p}$$</span></p>
 </div>
 where \(n\) is the equivalent number of Active Farmers, \(n_{a}\) is the number of Active Farmers, and \(n_{p}\) is the number of Passive Farmers.
+<br> <br>
 <b>3</b> &ensp; Growth Denominator:
 <div
 class="formula">
@@ -869,6 +870,7 @@ class="formula">
     <p><span>$$\mathrm{Blight\,power}=0.96^{\sqrt{n}}$$</span></p>
 </div>
 where \(n\) is the equivalent number of Active Farmers who are strengthening.
+<br> <br>
 <b>4.2</b> &ensp; Percentage of strengthened credits:
 <div
 class="formula">
@@ -878,8 +880,9 @@ class="formula">
 <b>5.1</b> &ensp; Weed effectiveness:
 <div
 class="formula">
-    <p><span>$$\mathrm{Weed\,effectiveness}=0.02\cdot P\cdot\mathrm{Blight\,strength}$$</span></p>
+    <p><span>$$\mathrm{Weed\,effectiveness}=0.02\cdot C\cdot\mathrm{Blight\,strength}$$</span></p>
 </div>
+where \(C\) is the proportion of credits planted.
 <b>5.2</b> &ensp; Proportion of credits planted, \(C\):
 <div
 class="formula">
@@ -900,24 +903,13 @@ class="formula">
 </div>
 <b>7</b> &ensp; Number of new Active Farmers before the Current Strength exceeds the Threshold, \(\Delta n\):
 <div class="formula">
-<p><span>$$P_{T}\cdot 1.0075^{\Delta n} < 1 \\ 
-1.0075^{\Delta n} < \cfrac{1}{P_{T}} \\ 
-\ln(1.0075^{\Delta n}) < \ln \cfrac{1}{P_{T}} \\ 
-\Delta n \ln 1.0075 < -\ln P_{T} \\ 
-\Delta n < -\cfrac{\ln P_{T}}{\ln 1.0075}
-$$</span></p>
+<p><span>$$\Delta n < -\cfrac{\ln P_{T}}{\ln 1.0075}, \; \Delta n \in \mathbb{N}_{0}$$</span></p>
 </div>
 where \(P_{T}\) is the Current Threshold Percentage.
 <br> <br>
 <b>8</b> &ensp; Number of weeds during the current Blight Cycle, \(w\):
 <div class="formula">
-<p><span>$$P_{B} = \cfrac{\text{Current Strength}}{\text{Maximum Strength}} \\
-P_{T} = \cfrac{\text{Current Strength}}{\text{Threshold}} = \cfrac{\text{Current Strength}}{\text{Maximum Strength}\cdot 0.99^{w+1}} \\
-\therefore P_{T} = \cfrac{P_{B}}{0.99^{w+1}} \\ 
-0.99^{w+1}=\cfrac{P_{B}}{P_{T}} \\ 
-\ln(0.99^{w+1})=\ln\cfrac{P_{B}}{P_{T}} \\ 
-(w+1)\ln0.99=\ln P_{B} - \ln P_{T} \\
-w=\cfrac{\ln P_{B} - \ln P_{T}}{\ln0.99}-1$$</span></p>
+<p><span>$$w=\cfrac{\ln P_{B} - \ln P_{T}}{\ln0.99}-1$$</span></p>
 </div>
 where \(P_{B}\) is the Current Blight Percentage and \(P_{T}\) is the Current Threshold Percentage.
 </div>
@@ -985,7 +977,7 @@ List of Terms
 
 <div
 class="version-text">
-Updated for BowlBot Version 18.0.1
+Updated for BowlBot Version 18.0.2
 </div>
 
 </body>

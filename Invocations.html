@@ -448,7 +448,7 @@ id="Low_Cost#Falsify">
 class="content">
 Falsify is used to add a vote to a track in a Bowl. The command <span class="command-text">!falsify choice user</span> consumes at least 1 Ephemera, with the cost increasing by 1 for every previous Falsified user in the current Bowl, to make a recent voter who has not voted in the current Bowl vote for the specified choice. 
 <br> <br>
-Falsify will misfire if the target has already voted in the current Bowl.
+Falsify will fail if there are no eligible users, such as immediately after a Bot Restart as the list of recent voters will be empty, or if all recent voters have voted already in the current Bowl.
 </div>
 
 <div
@@ -515,7 +515,7 @@ id="Medium_Cost#Kickstart">
 class="content">
 Kickstart is used to increase a user's <a class="text-actionable-link" href="https://taylorbowl.wiki/Votes#Streak" data-tippy-content="Streaks record the number of consecutive Bowls a user has voted in.">Streak</a>. The command <span class="command-text">!kickstart user</span> consumes 3 Ephemera to increase the target's current Streak by 8% of the target or invoker's Streak Record, whichever is lower. The increase is always rounded down. The effect of Kickstart is limited to a maximum of 20. The formula for the increase in Streak granted by Kickstart is given by:
 <div class="formula">
-<p><span>$$\text{Increase}=\text{max}\begin{cases} 0.08\cdot\text{Invoker's Streak Record} \\ 0.08\cdot\text{Target's Streak Record} \\ 20 \end{cases}$$</span></p>
+<p><span>$$\text{Increase}=\text{max}\begin{cases} 0.08\cdot\text{min}\begin{cases} \text{Invoker's Streak Record} \\ \text{Target's Streak Record} \end{cases} \\ 20 \end{cases}$$</span></p>
 </div>
 Kickstart will misfire if used when either the target or invoker has a Streak Record of 12 or less. Kickstart will misfire if its success would increase the target's current Streak past 92% of their Streak Record. Kickstart will misfire if used on the same target more than once during a TaylorBowl.
 <br> <br>
@@ -959,13 +959,13 @@ List of Formulae
 class="content">
 
 <b>1.1</b> &ensp; Price of condense:
-<p><span>$$\text{Price}=\text{max}\begin{cases} 0.0007\cdot\text{Active credits} \\ 0.015\cdot\text{Total credits} \\ 1989 \end{cases}$$</span></p>
+<p><span>$$\text{Price}=\text{max}\begin{cases} 0.0006\cdot\text{Active credits} \\ 0.015\cdot\text{Total credits} \\ 1989 \end{cases}$$</span></p>
 
 <b>1.2</b> &ensp; Returns from Decompress:
 <p><span>$$\text{Returns}=\text{Price}\cdot\left(0.15+0.03\cdot\text{Number of Ephemera Levels}\right)$$</span></p>
 
 <b>2</b> &ensp; Streak increase from Kickstart:
-<p><span>$$\text{Increase}=\text{max}\begin{cases} 0.05\cdot\text{Invoker's Streak Record} \\ 0.05\cdot\text{Target's Streak Record} \\ 12 \end{cases}$$</span></p>
+<p><span>$$\text{Increase}=\text{max}\begin{cases} 0.08\cdot\text{min}\begin{cases} \text{Invoker's Streak Record} \\ \text{Target's Streak Record} \end{cases} \\ 20 \end{cases}$$</span></p>
 
 <b>3</b> &ensp; Ephemera required to Enhance:
 <p><span>$$\text{Cost}=\text{max}\begin{cases} 5 \\ \text{Ephemera Level} \end{cases}$$</span></p>
@@ -1033,7 +1033,7 @@ List of Terms
 
 <div
 class="version-text">
-Updated for BowlBot Version 18.0.0
+Updated for BowlBot Version 18.0.2
 </div>
 
 </body>
@@ -1044,3 +1044,4 @@ Updated for BowlBot Version 18.0.0
 <script src="Code.js"></script>
 
 </html>
+

@@ -452,7 +452,7 @@ Falsify
 class="content">
 Falsify is used to make a random non-voter vote in a Bowl. The command <span class="command-text">!falsify choice</span> consumes at least 1 Ephemera to make a random recent voter vote for the specified choice.
 <br> <br>
-Falsify will fail if a Bot Restart has just occurred as the list of recent voters will be empty. Falsify will misfire if the target has already voted in the current Bowl.
+Falsify will fail if there are no eligible users, such as immediately after a Bot Restart as the list of recent voters will be empty, or if all recent voters have voted already in the current Bowl.
 </div>
 
 <div
@@ -831,16 +831,9 @@ where \(S_{n}\) is the total number of credits, \(m_{1}\) is the multiplier, \(m
 <p><span>$$\text{Total credits earned}=S_{b}-S_{a}$$</span></p>
 </div>
 
-<b>4.1</b> &ensp; The value of user A's Kickstart on themself, \(K_{A}\):
+<b>4</b> &ensp; Streak increase from Kickstart:
 <div class="formula">
-<p><span>$$K_{A}=\text{max}left(0.08\cdot!S_{A}!, 20right)$$</span></p>
-</div>
-where \(S_{A}\) is user A's Streak Record.
-<br> <br>
-
-<b>4.2</b> &ensp; The value of user A's Kickstart on user B:
-<div class="formula">
-<p><span>$$\text{Kickstart Value}=\text{max}\left(K_{A}, K_{B}\right)$$</span></p>
+<p><span>$$\text{Increase}=\text{max}\begin{cases} 0.08\cdot\text{min}\begin{cases} \text{Invoker's Streak Record} \\ \text{Target's Streak Record} \end{cases} \\ 20 \end{cases}$$</span></p>
 </div>
 
 <b>5.1</b> &ensp; Estimated increase in the total credits earned from using 1 Kickstart::
@@ -906,7 +899,7 @@ List of Terms
 
 <div
 class="version-text">
-Updated for BowlBot Version 18.0.0
+Updated for BowlBot Version 18.0.2
 </div>
 
 </body>
@@ -915,6 +908,5 @@ Updated for BowlBot Version 18.0.0
 <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="Code.js"></script>
-
 
 </html>
