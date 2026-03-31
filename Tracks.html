@@ -293,7 +293,7 @@ id="js-toggle-content-2">
 
 <div
 class="content">
-A matchup is a pair of tracks that can be in a Bowl against each other. Users may use the command <span class="command-text">!matchups</span> to see all available matchups, or <span class="command-text">!matchups tier</span> to see all currently available and future available matchups. Not all tracks are eligible for a matchup at all times. There are two requirements: Recency and Eligibility.
+A matchup is a pair of tracks that can be in a Bowl against each other. Users may use the command <span class="command-text">!matchups</span> to see all available matchups, or <span class="command-text">!matchups tier</span> to see all available matchups in a specified Tier. Not all tracks are eligible for a matchup at all times. There are two requirements: Recency and Eligibility.
 </div>
 
 <div
@@ -311,7 +311,9 @@ The embed showing the tracks with Recency values.
 
 <div
 class="content">
-After a bowl has concluded, both tracks are assigned a Recency value of 30. At the end of every subsequent TaylorBowl, this value decreases by 1 until it reaches 0, where it no longer exists. If a track has a Recency value greater than 0, it is not eligible to be in a TaylorBowl. The command <span class="command-text">!recenttracks</span> or its shortened version <span class="command-text">!recent</span> shows all 78 tracks with Recency values.  
+After a bowl has concluded, both tracks are assigned a Recency value of 39. At the end of every subsequent TaylorBowl, this value decreases by 1 until it reaches 0, where it no longer exists. If a track has a Recency value greater than 0, it is not eligible to be in a TaylorBowl. The command <span class="command-text">!recenttracks</span> or its shortened version <span class="command-text">!recent</span> shows all 78 tracks with Recency values.
+<br> <br>
+Users may use the command <span class="command-text">!pending</span> to see all pending matchups, which will be available after both tracks have their Recency values reduced to 0, or <span class="command-text">!pending tier</span> to see all pending matchups in a specified Tier.
 </div>
 
 <div
@@ -518,6 +520,10 @@ List of Commands
         <td>Lists all currently possible matchups. <br> <span class="command-text">tier</span> is an optional parameter which defaults to showing all matchups. <br> Alternative forms: <span class="command-text">!allmatchups tier</span> </td>
     </tr>
     <tr>
+        <td><span class="command-text">!pending tier</span></td>
+        <td>Lists all pending matchups. <br> <span class="command-text">tier</span> is an optional parameter which defaults to showing all pending matchups. <br> Alternative forms: <span class="command-text">!pendingmatchups tier</span> </td>
+    </tr>
+    <tr>
         <td><span class="command-text">!recent</span></td>
         <td>Lists all tracks with Recency values. <br> Alternative forms: <span class="command-text">!recenttracks</span></td>
     </tr>
@@ -557,6 +563,10 @@ List of Terms
         <td>Extended Play, a musical recording that contains more tracks than a single but less than an album.</td>
     </tr>
     <tr>
+        <td>Pending matchup</td>
+        <td>A matchup that is not currently available solely because at least one of its tracks has a Recency value.</td>
+    </tr>
+    <tr>
         <td>Tracklist</td>
         <td>The order of songs on an album.</td>
     </tr>
@@ -569,7 +579,7 @@ List of Terms
 
 <div
 class="version-text">
-Updated for BowlBot Version 17.2.7
+Updated for BowlBot Version 18.0.3
 </div>
 
 </body>
@@ -580,6 +590,3 @@ Updated for BowlBot Version 17.2.7
 <script src="Code.js"></script>
 
 </html>
-
-
-
